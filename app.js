@@ -12,7 +12,6 @@ app.set('view engine', 'ejs');
 
 app.get('/', (req, res)=>{
     res.send("Hello World!");
-    console.log("Program is running...");
 })
 
 app.listen(3000);
