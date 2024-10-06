@@ -13,4 +13,4 @@ const productSchema = mongoose.Schema({
     panelColor: String,
 })
 
-module.exports = mongoose.model("produt", productSchema);
+module.exports = mongoose.model("produts", productSchema);
