@@ -10,15 +10,14 @@ app.use(express.static('./public'));
 app.use(cookieParser());
 app.set('view engine', 'ejs');
 
-const usersRoute = require('./routes/usersRoute');
-const productsRoute = require('./routes/productsRoute');
+const userRoutes = require('./routes/userRoutes');
+const ownerRoutes = require('./routes/ownerRoutes');
 
-app.use('/users', usersRoute);
-app.use('/products', productsRoute);
+app.use('/user', userRoutes);
+app.use('/owner', ownerRoutes);
 
 app.get('/', (req, res)=>{
-    res.send("Hello World!");
+    res.send("Home");
 })
-
 
 app.listen(3000);
