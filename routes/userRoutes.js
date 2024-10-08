@@ -1,14 +1,10 @@
 const express = require('express');
-
 const router = express.Router();
+const {createUser, loginUser} = require('../controllers/authController')
 
-router.get('/createAccount', (req, res)=>{
-    res.send("Sign up")
-})
+router.post('/createAccount', createUser)
 
-router.get('/login', (req, res)=>{
-    res.send("login")
-})
+router.post('/login', loginUser)
 
 router.get('/cart', (req, res)=>{
     res.send("cart")

@@ -17,8 +17,6 @@ const ownerRoutes = require('./routes/ownerRoutes');
 app.use('/user', userRoutes);
 app.use('/owner', ownerRoutes);
 
-console.log(process.env.JWT_KEY);
-
 app.get('/', (req, res)=>{
     res.send("Home");
 })
