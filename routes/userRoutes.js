@@ -1,12 +1,21 @@
 const express = require('express');
 const router = express.Router();
-const {createUser, loginUser} = require('../controllers/authController')
+const {createUser, loginUser} = require('../controllers/authController');
+const isLoggedIn = require('../middlewares/isLoggedIn')
 
 router.post('/createAccount', createUser)
 
 router.post('/login', loginUser)
 
-router.get('/cart', (req, res)=>{
+router.get('/loginPage', (req, res)=>{
+    res.render('loginPage')
+})
+
+router.get('/createAccountPage', (req, res)=>{
+    res.render('createAccountPage')
+})
+
+router.get('/cart', isLoggedIn , (req, res)=>{
     res.send("cart")
 })
 

@@ -1,4 +1,4 @@
-const jwt = require('jwt');
+const jwt = require('jsonwebtoken');
 const userModel = require('../models/userModel');
 
 const isLoggedIn = async (req, res, next) => {
@@ -19,4 +19,4 @@ const isLoggedIn = async (req, res, next) => {
     }
 }
 
-module.exports.isLoggedIn = isLoggedIn;
+module.exports = isLoggedIn;

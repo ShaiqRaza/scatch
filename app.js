@@ -19,6 +19,7 @@ app.use(expressSession({
 app.use(flash());
 app.set('view engine', 'ejs');
 
+const isLoggedIn = require('./middlewares/isLoggedIn')
 const userRoutes = require('./routes/userRoutes');
 const ownerRoutes = require('./routes/ownerRoutes');
 

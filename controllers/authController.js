@@ -23,7 +23,7 @@ let createUser = async (req, res)=>{
         })
         let token = jwt.sign({email: createdUser.email, _id: createdUser._id}, process.env.JWT_KEY);
         res.cookie("token", token);
-        res.send("Account created")
+        res.redirect("/");
     } 
     catch(err) 
     {
