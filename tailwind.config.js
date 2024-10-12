@@ -2,10 +2,18 @@
 module.exports = {
   content: [
     './views/createAccountPage.ejs',
-    './views/loginPage.ejs'
+    './views/loginPage.ejs',
+    './views/homePage.ejs',
   ],
   theme: {
     extend: {},
+    screens: {
+      'xs': '480px',
+      'sm': '576px',
+      'md': '768px',
+      'lg': '992px',
+      'xl': '1280px',
+    }
   },
   plugins: [],
 }

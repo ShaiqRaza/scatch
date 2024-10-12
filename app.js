@@ -26,7 +26,7 @@ app.use('/user', userRoutes);
 app.use('/owner', ownerRoutes);
 
 app.get('/', (req, res)=>{
-    res.render("createAccountPage");
+    res.render("homePage");
 })
 
 app.listen(3000);
