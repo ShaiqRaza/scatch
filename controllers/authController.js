@@ -74,8 +74,8 @@ module.exports.loginUser = loginUser;
 
 let createOwner = async (req, res)=>{
 
-    let alreadyOwner = ownerModel.find();
-    if(alreadyOwner)
+    let alreadyOwner = await ownerModel.find();
+    if(alreadyOwner.length > 0)
         return res.status(400).send("There is already an owner");
 
     let {fullname, email, password} = req.body;

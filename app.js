@@ -27,7 +27,7 @@ app.use('/user', userRoutes);
 app.use('/owner', ownerRoutes);
 
 app.get('/', (req, res)=>{
-    res.render("homePage");
+    res.render("homePage", {token: req.cookies.token});
 })
 
 app.listen(3000);

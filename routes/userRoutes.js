@@ -15,16 +15,16 @@ router.get('/createAccountPage', (req, res)=>{
     res.render('createAccountPage', {error: req.flash("error")})
 })
 
-router.get('/cart', isLoggedIn , (req, res)=>{
+router.get('/profile', isLoggedIn ,(req, res)=>{
+    res.send("user profile")
+})
+
+router.get('/cart', (req, res)=>{
     res.send("cart")
 })
 
 router.get('/orders', (req, res)=>{
     res.send("orders")
-})
-
-router.get('/account', (req, res)=>{
-    res.send("user profile")
 })
 
 module.exports = router;

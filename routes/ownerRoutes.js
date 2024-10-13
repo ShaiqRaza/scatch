@@ -6,15 +6,15 @@ if(process.env.NODE_ENV === "development"){
     router.post('/createAccount', createOwner)
 }
 
-router.get('/admin', (req, res)=>{
+router.get('/panel', (req, res)=>{
     res.send("admin panel")
 })
 
-router.get('/admin/edit', (req, res)=>{
+router.get('/panel/edit-product', (req, res)=>{
     res.send("edit product")
 })
 
-router.get('/admin/createProduct', (req, res)=>{
+router.get('/panel/create-product', (req, res)=>{
     res.send("create product")
 })
 
@@ -22,7 +22,7 @@ router.get('/account', (req, res)=>{
     res.send("owner profile")
 })
 
-router.get('/stats', (req, res)=>{
+router.get('/panel/stats', (req, res)=>{
     res.send("shop stats")
 })
 
