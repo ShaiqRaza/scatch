@@ -5,12 +5,16 @@ const jwt = require('jsonwebtoken')
 let createUser = async (req, res)=>{
     let {fullname, email, password} = req.body;
     
-    if( ! (fullname && email && password))
-        return res.status(400).send("Body parameters are not Complete")
-
+    if( ! (fullname && email && password)) {
+        req.flash("error", "Fill all the fields");
+        return res.redirect("/user/createAccountPage");
+    }
+       
     let existingUser = await userModel.findOne({email});
-    if(existingUser) 
-        return res.status(400).send("You already have an account plaease login.");
+    if(existingUser) {
+        req.flash("error", "This account has been created already");
+        return res.redirect("/user/createAccountPage");
+    }   
 
     try
     {
@@ -35,25 +39,31 @@ module.exports.createUser = createUser;
 
 let loginUser = async (req, res)=>{
     let {email, password} = req.body;
-    if( ! (email && password))
-        return res.status(400).send("Body parameters are not Complete")
+    if( ! (email && password)) {
+        req.flash("error", "Fill all the fields");
+        return res.redirect("/user/loginPage");
+    }
 
     try {
         let existingUser = await userModel.findOne({email});
 
         if(existingUser){
-            bcrypt.compare(password, user.password, (err, result)=>{
+            bcrypt.compare(password, existingUser.password, (err, result)=>{
                 if(err)
                     return res.status(500).send(err.message);
-                else if(!result)
-                    return res.status(400).send("password or email is incorrect");
+                else if(!result) {
+                    req.flash("error", "Password or Email is incorrect");
+                    return res.redirect("/user/loginPage");
+                }
                 let token = jwt.sign({email: existingUser.email, _id: existingUser._id}, process.env.JWT_KEY);
                 res.cookie("token", token);
-                res.send("Account login")
+                res.redirect('/')
             })
         }
-        else
-            res.status(400).send("password or email is incorrect");
+        else {
+            req.flash("error", "Password or Email is incorrect");
+            return res.redirect("/user/loginPage");
+        }
     }
     catch (err) {
         res.status(500).send(err.message);

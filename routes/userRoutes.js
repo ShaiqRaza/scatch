@@ -8,11 +8,11 @@ router.post('/createAccount', createUser)
 router.post('/login', loginUser)
 
 router.get('/loginPage', (req, res)=>{
-    res.render('loginPage')
+    res.render('loginPage', {error: req.flash("error")})
 })
 
 router.get('/createAccountPage', (req, res)=>{
-    res.render('createAccountPage')
+    res.render('createAccountPage', {error: req.flash("error")})
 })
 
 router.get('/cart', isLoggedIn , (req, res)=>{
