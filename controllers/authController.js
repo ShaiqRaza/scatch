@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const userModel = require('../models/userModel');
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const ownerModel = require('../models/ownerModel');
 
 let createUser = async (req, res)=>{
     let {fullname, email, password} = req.body;
@@ -11,7 +12,8 @@ let createUser = async (req, res)=>{
     }
        
     let existingUser = await userModel.findOne({email});
-    if(existingUser) {
+    let checkOwnersMail = await ownerModel.findOne({email});
+    if(existingUser || checkOwnersMail) {
         req.flash("error", "This account has been created already");
         return res.redirect("/user/createAccountPage");
     }   
@@ -34,7 +36,6 @@ let createUser = async (req, res)=>{
         res.status(500).send(err.message);
     }
 }
-
 module.exports.createUser = createUser;
 
 let loginUser = async (req, res)=>{
@@ -69,5 +70,33 @@ let loginUser = async (req, res)=>{
         res.status(500).send(err.message);
     }
 }
-
 module.exports.loginUser = loginUser;
+
+let createOwner = async (req, res)=>{
+
+    let alreadyOwner = ownerModel.find();
+    if(alreadyOwner)
+        return res.status(400).send("There is already an owner");
+
+    let {fullname, email, password} = req.body;
+    
+    if( ! (fullname && email && password)) 
+        return res.status(400).send("Fill all the fields");
+
+    try
+    {
+        let salt = await bcrypt.genSalt(10);
+        let hash = await bcrypt.hash(password, salt);
+        let createdOwner = await userModel.create({
+            fullname,
+            email,
+            password:hash
+        })
+        res.send("Owner created");
+    } 
+    catch(err) 
+    {
+        res.status(500).send(err.message);
+    }
+}
+module.exports.createOwner = createOwner;
