@@ -15,7 +15,7 @@ router.get('/createAccountPage', (req, res)=>{
     res.render('createAccountPage', {error: req.flash("error")})
 })
 
-router.get('/profile', isLoggedIn ,(req, res)=>{
+router.get('/profile', (req, res)=>{
     res.send("user profile")
 })
 

@@ -1,12 +1,14 @@
 const express = require('express');
 const {createOwner} = require('../controllers/authController');
+const isLoggedIn = require('../middlewares/isLoggedIn');
+const isLoggedInOwner = require('../middlewares/isLoggedInOwner');
 const router = express.Router();
 
 if(process.env.NODE_ENV === "development"){
     router.post('/createAccount', createOwner)
 }
 
-router.get('/panel', (req, res)=>{
+router.get('/panel', isLoggedInOwner, (req, res)=>{
     res.send("admin panel")
 })
 
