@@ -6,7 +6,10 @@ const isLoggedInOwner = async (req, res, next) => {
     {
         let decodedData = jwt.verify(req.cookies.token, process.env.JWT_KEY);
         req.owner = await ownerModel.findOne({email: decodedData.email}).select("-password");
-        next();
+        if(req.owner)
+            next();
+        else
+            res.redirect('/');
     }
     catch(err)
     {
