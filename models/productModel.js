@@ -11,6 +11,11 @@ const productSchema = mongoose.Schema({
     bgColor: String,
     textColor: String,
     panelColor: String,
+    addedCount: {
+        type: Boolean,
+        default: 0
+    },
+    price: Number,
 })
 
 module.exports = mongoose.model("produts", productSchema);

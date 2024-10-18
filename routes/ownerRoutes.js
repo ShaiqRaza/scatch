@@ -8,6 +8,12 @@ if(process.env.NODE_ENV === "development"){
     router.post('/createAccount', createOwner)
 }
 
+if(process.env.NODE_ENV === "development"){
+    router.get('/createAccountPage', (req, res)=>{
+        res.render('createOwnerPage', {error: req.flash("error")});
+    })
+}
+
 router.get('/panel', isLoggedInOwner, (req, res)=>{
     res.send("admin panel")
 })
