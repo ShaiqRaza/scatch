@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
     <title>Shop</title>
 </head>
-<body class="w-screen h-screen">
+<body class="w-screen h-screen overflow-hidden">
     <div class="w-full h-full">
         <!-- Menu Bar -->
         <nav class="flex justify-between items-center w-full xl:h-24 lg:h-20 md:h-16 sm:h-14 h-12 shadow-md absolute top-0 left-0 xl:px-16 lg:px-14 md:px-12 sm:px-10 xs:px-8 px-6">
@@ -31,16 +31,35 @@
                 <% } %>
                 
         </nav>        
-       <div class="w-full h-full flex xl:pt-24 lg:pt-20 md:pt-16 sm:pt-14 pt-12 xl:px-16 lg:px-14 md:px-12 sm:px-10 xs:px-8 px-6">
-             <!-- Side Left Bar -->
-            <div class="h-full flex flex-col xl:w-44 lg:w-40 md:w-32 sm:w-24 xs:w-20 w-16 items-start bg-gray-300">
+        <div class="w-full h-full xl:pt-24 lg:pt-20 md:pt-16 xl:px-16 lg:px-14 md:px-10 sm:px-8 xs:px-6 px-4 sm:pt-14 pt-12 grid grid-cols-12 mt-4 gap-8">
+            <!-- Side Left Bar -->
+            <div class="h-full bg-gray-300 xl:col-span-1 lg:col-span-2 col-span-3">
                 <button class="text-gray-800 font-bold py-2 lg:text-lg md:text-base sm:text-sm text-xs">Filter by</button>
                 <button class="text-gray-800 font-bold py-2 lg:text-lg md:text-base sm:text-sm text-xs">Sort by</button>
             </div>
-            <div>
-                hello
+            
+            <!-- Main products display area (Change flex to grid) -->
+            <div class="flex flex-wrap content-start gap-10 xl:col-span-11 lg:col-span-10 col-span-9 hide-scrollbar">
+                <div class="w-[200px] h-[300px] bg-slate-900"></div>
+                <div class="w-[200px] h-[300px] bg-slate-900"></div>
+                <div class="w-[200px] h-[300px] bg-slate-900"></div>
+                <div class="w-[200px] h-[300px] bg-slate-900"></div>
+                <div class="w-[200px] h-[300px] bg-slate-900"></div>
+                <div class="w-[200px] h-[300px] bg-slate-900"></div>
+                <div class="w-[200px] h-[300px] bg-slate-900"></div>
+                <div class="w-[200px] h-[300px] bg-slate-900"></div>
+                <div class="w-[200px] h-[300px] bg-slate-900"></div>
+                <div class="w-[200px] h-[300px] bg-slate-900"></div>
+                <div class="w-[200px] h-[300px] bg-slate-900"></div>
+                <div class="w-[200px] h-[300px] bg-slate-900"></div>
+                <div class="w-[200px] h-[300px] bg-slate-900"></div>
+                <div class="w-[200px] h-[300px] bg-slate-900"></div>
+                <div class="w-[200px] h-[300px] bg-slate-900"></div>
+                <div class="w-[200px] h-[300px] bg-slate-900"></div>
+                <div class="w-[200px] h-[300px] bg-slate-900"></div>
             </div>
-       </div>
+        </div>
+        
     </div>
 </body>
 </html>
