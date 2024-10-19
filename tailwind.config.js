@@ -4,6 +4,8 @@ module.exports = {
     './views/createAccountPage.ejs',
     './views/loginPage.ejs',
     './views/homePage.ejs',
+    './views/createOwnerPage.ejs',
+    './views/panelPage.ejs',
   ],
   theme: {
     extend: {},

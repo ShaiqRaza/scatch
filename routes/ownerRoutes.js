@@ -15,7 +15,7 @@ if(process.env.NODE_ENV === "development"){
 }
 
 router.get('/panel', isLoggedInOwner, (req, res)=>{
-    res.send("admin panel")
+    res.render("panelPage")
 })
 
 router.get('/panel/edit-product', (req, res)=>{
