@@ -6,10 +6,10 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
     <title>Shop</title>
 </head>
-<body class="w-screen h-screen overflow-hidden">
+<body class="w-screen h-screen overflow-x-hidden">
     <div class="w-full h-full">
         <!-- Menu Bar -->
-        <nav class="flex justify-between items-center w-full xl:h-24 lg:h-20 md:h-16 sm:h-14 h-12 shadow-md absolute top-0 left-0 xl:px-16 lg:px-14 md:px-12 sm:px-10 xs:px-8 px-6">
+        <nav class="flex justify-between items-center bg-white w-full xl:h-24 lg:h-20 md:h-16 sm:h-14 h-12 shadow-md fixed top-0 left-0 xl:px-16 lg:px-14 md:px-12 sm:px-10 xs:px-8 px-6 z-50">
             <div class="flex items-center">
                 <h1 class="font-bold text-blue-500 lg:text-4xl md:text-3xl sm:text-2xl text-xl cursor-pointer">Scatch</h1>
             </div>
@@ -30,36 +30,45 @@
                     </form>
                 <% } %>
                 
-        </nav>        
-        <div class="w-full h-full xl:pt-24 lg:pt-20 md:pt-16 xl:px-16 lg:px-14 md:px-10 sm:px-8 xs:px-6 px-4 sm:pt-14 pt-12 grid grid-cols-12 mt-4 gap-8">
+        </nav>      
+
+        <div class="px-7">
             <!-- Side Left Bar -->
-            <div class="h-full bg-gray-300 xl:col-span-1 lg:col-span-2 col-span-3">
+            <div class="bg-gray-300 fixed xl:top-32 lg:top-28 md:top-24 sm:top-20 top-16 xl:w-[180px] lg:w-[160px] md:w-[140px] sm:w-[120px] xs:w-[100px] w-[80px] xl:h-52 lg:h-44 md:h-36 sm:h-32 xs:h-28 h-24">
                 <button class="text-gray-800 font-bold py-2 lg:text-lg md:text-base sm:text-sm text-xs">Filter by</button>
                 <button class="text-gray-800 font-bold py-2 lg:text-lg md:text-base sm:text-sm text-xs">Sort by</button>
-            </div>
-            
+            </div>  
             <!-- Main products display area (Change flex to grid) -->
-            <div class="flex flex-wrap content-start gap-10 xl:col-span-11 lg:col-span-10 col-span-9 hide-scrollbar">
-                <div class="w-[200px] h-[300px] bg-slate-900"></div>
-                <div class="w-[200px] h-[300px] bg-slate-900"></div>
-                <div class="w-[200px] h-[300px] bg-slate-900"></div>
-                <div class="w-[200px] h-[300px] bg-slate-900"></div>
-                <div class="w-[200px] h-[300px] bg-slate-900"></div>
-                <div class="w-[200px] h-[300px] bg-slate-900"></div>
-                <div class="w-[200px] h-[300px] bg-slate-900"></div>
-                <div class="w-[200px] h-[300px] bg-slate-900"></div>
-                <div class="w-[200px] h-[300px] bg-slate-900"></div>
-                <div class="w-[200px] h-[300px] bg-slate-900"></div>
-                <div class="w-[200px] h-[300px] bg-slate-900"></div>
-                <div class="w-[200px] h-[300px] bg-slate-900"></div>
-                <div class="w-[200px] h-[300px] bg-slate-900"></div>
-                <div class="w-[200px] h-[300px] bg-slate-900"></div>
-                <div class="w-[200px] h-[300px] bg-slate-900"></div>
-                <div class="w-[200px] h-[300px] bg-slate-900"></div>
-                <div class="w-[200px] h-[300px] bg-slate-900"></div>
+            <div class="w-full h-full xl:pt-32 lg:pt-28 md:pt-24 sm:pt-20 pt-16 flex flex-wrap justify-between lg:gap-8 md:gap-7 sm:gap-6 xs:gap-5 gap-4 xl:pl-[230px] lg:pl-[200px] md:pl-[180px] sm:pl-[150px] xs:pl-[120px] pl-[100px]">      
+                <div class="xl:w-[10vw] xl:h-[15vw] lg:w-[12vw] lg:h-[18vw] md:w-[15vw] md:h-[22vw] sm:w-[17vw] sm:h-[25vw] xs:w-[20vw] xs:h-[30vw] w-[22vw] h-[33vw] bg-slate-900"></div>        
+                <div class="xl:w-[10vw] xl:h-[15vw] lg:w-[12vw] lg:h-[18vw] md:w-[15vw] md:h-[22vw] sm:w-[17vw] sm:h-[25vw] xs:w-[20vw] xs:h-[30vw] w-[22vw] h-[33vw] bg-slate-900"></div>        
+                <div class="xl:w-[10vw] xl:h-[15vw] lg:w-[12vw] lg:h-[18vw] md:w-[15vw] md:h-[22vw] sm:w-[17vw] sm:h-[25vw] xs:w-[20vw] xs:h-[30vw] w-[22vw] h-[33vw] bg-slate-900"></div>        
+                <div class="xl:w-[10vw] xl:h-[15vw] lg:w-[12vw] lg:h-[18vw] md:w-[15vw] md:h-[22vw] sm:w-[17vw] sm:h-[25vw] xs:w-[20vw] xs:h-[30vw] w-[22vw] h-[33vw] bg-slate-900"></div>        
+                <div class="xl:w-[10vw] xl:h-[15vw] lg:w-[12vw] lg:h-[18vw] md:w-[15vw] md:h-[22vw] sm:w-[17vw] sm:h-[25vw] xs:w-[20vw] xs:h-[30vw] w-[22vw] h-[33vw] bg-slate-900"></div>        
+                <div class="xl:w-[10vw] xl:h-[15vw] lg:w-[12vw] lg:h-[18vw] md:w-[15vw] md:h-[22vw] sm:w-[17vw] sm:h-[25vw] xs:w-[20vw] xs:h-[30vw] w-[22vw] h-[33vw] bg-slate-900"></div>        
+                <div class="xl:w-[10vw] xl:h-[15vw] lg:w-[12vw] lg:h-[18vw] md:w-[15vw] md:h-[22vw] sm:w-[17vw] sm:h-[25vw] xs:w-[20vw] xs:h-[30vw] w-[22vw] h-[33vw] bg-slate-900"></div>        
+                <div class="xl:w-[10vw] xl:h-[15vw] lg:w-[12vw] lg:h-[18vw] md:w-[15vw] md:h-[22vw] sm:w-[17vw] sm:h-[25vw] xs:w-[20vw] xs:h-[30vw] w-[22vw] h-[33vw] bg-slate-900"></div>        
+                <div class="xl:w-[10vw] xl:h-[15vw] lg:w-[12vw] lg:h-[18vw] md:w-[15vw] md:h-[22vw] sm:w-[17vw] sm:h-[25vw] xs:w-[20vw] xs:h-[30vw] w-[22vw] h-[33vw] bg-slate-900"></div>        
+                <div class="xl:w-[10vw] xl:h-[15vw] lg:w-[12vw] lg:h-[18vw] md:w-[15vw] md:h-[22vw] sm:w-[17vw] sm:h-[25vw] xs:w-[20vw] xs:h-[30vw] w-[22vw] h-[33vw] bg-slate-900"></div>        
+                <div class="xl:w-[10vw] xl:h-[15vw] lg:w-[12vw] lg:h-[18vw] md:w-[15vw] md:h-[22vw] sm:w-[17vw] sm:h-[25vw] xs:w-[20vw] xs:h-[30vw] w-[22vw] h-[33vw] bg-slate-900"></div>        
+                <div class="xl:w-[10vw] xl:h-[15vw] lg:w-[12vw] lg:h-[18vw] md:w-[15vw] md:h-[22vw] sm:w-[17vw] sm:h-[25vw] xs:w-[20vw] xs:h-[30vw] w-[22vw] h-[33vw] bg-slate-900"></div>        
+                <div class="xl:w-[10vw] xl:h-[15vw] lg:w-[12vw] lg:h-[18vw] md:w-[15vw] md:h-[22vw] sm:w-[17vw] sm:h-[25vw] xs:w-[20vw] xs:h-[30vw] w-[22vw] h-[33vw] bg-slate-900"></div>        
+                <div class="xl:w-[10vw] xl:h-[15vw] lg:w-[12vw] lg:h-[18vw] md:w-[15vw] md:h-[22vw] sm:w-[17vw] sm:h-[25vw] xs:w-[20vw] xs:h-[30vw] w-[22vw] h-[33vw] bg-slate-900"></div>        
+                <div class="xl:w-[10vw] xl:h-[15vw] lg:w-[12vw] lg:h-[18vw] md:w-[15vw] md:h-[22vw] sm:w-[17vw] sm:h-[25vw] xs:w-[20vw] xs:h-[30vw] w-[22vw] h-[33vw] bg-slate-900"></div>        
+                <div class="xl:w-[10vw] xl:h-[15vw] lg:w-[12vw] lg:h-[18vw] md:w-[15vw] md:h-[22vw] sm:w-[17vw] sm:h-[25vw] xs:w-[20vw] xs:h-[30vw] w-[22vw] h-[33vw] bg-slate-900"></div>        
+                <div class="xl:w-[10vw] xl:h-[15vw] lg:w-[12vw] lg:h-[18vw] md:w-[15vw] md:h-[22vw] sm:w-[17vw] sm:h-[25vw] xs:w-[20vw] xs:h-[30vw] w-[22vw] h-[33vw] bg-slate-900"></div>        
+                <div class="xl:w-[10vw] xl:h-[15vw] lg:w-[12vw] lg:h-[18vw] md:w-[15vw] md:h-[22vw] sm:w-[17vw] sm:h-[25vw] xs:w-[20vw] xs:h-[30vw] w-[22vw] h-[33vw] bg-slate-900"></div>        
+                <div class="xl:w-[10vw] xl:h-[15vw] lg:w-[12vw] lg:h-[18vw] md:w-[15vw] md:h-[22vw] sm:w-[17vw] sm:h-[25vw] xs:w-[20vw] xs:h-[30vw] w-[22vw] h-[33vw] bg-slate-900"></div>        
+                <div class="xl:w-[10vw] xl:h-[15vw] lg:w-[12vw] lg:h-[18vw] md:w-[15vw] md:h-[22vw] sm:w-[17vw] sm:h-[25vw] xs:w-[20vw] xs:h-[30vw] w-[22vw] h-[33vw] bg-slate-900"></div>        
+                <div class="xl:w-[10vw] xl:h-[15vw] lg:w-[12vw] lg:h-[18vw] md:w-[15vw] md:h-[22vw] sm:w-[17vw] sm:h-[25vw] xs:w-[20vw] xs:h-[30vw] w-[22vw] h-[33vw] bg-slate-900"></div>        
+                <div class="xl:w-[10vw] xl:h-[15vw] lg:w-[12vw] lg:h-[18vw] md:w-[15vw] md:h-[22vw] sm:w-[17vw] sm:h-[25vw] xs:w-[20vw] xs:h-[30vw] w-[22vw] h-[33vw] bg-slate-900"></div>        
+                <div class="xl:w-[10vw] xl:h-[15vw] lg:w-[12vw] lg:h-[18vw] md:w-[15vw] md:h-[22vw] sm:w-[17vw] sm:h-[25vw] xs:w-[20vw] xs:h-[30vw] w-[22vw] h-[33vw] bg-slate-900"></div>        
+                <div class="xl:w-[10vw] xl:h-[15vw] lg:w-[12vw] lg:h-[18vw] md:w-[15vw] md:h-[22vw] sm:w-[17vw] sm:h-[25vw] xs:w-[20vw] xs:h-[30vw] w-[22vw] h-[33vw] bg-slate-900"></div>        
+                <div class="xl:w-[10vw] xl:h-[15vw] lg:w-[12vw] lg:h-[18vw] md:w-[15vw] md:h-[22vw] sm:w-[17vw] sm:h-[25vw] xs:w-[20vw] xs:h-[30vw] w-[22vw] h-[33vw] bg-slate-900"></div>        
+                <div class="xl:w-[10vw] xl:h-[15vw] lg:w-[12vw] lg:h-[18vw] md:w-[15vw] md:h-[22vw] sm:w-[17vw] sm:h-[25vw] xs:w-[20vw] xs:h-[30vw] w-[22vw] h-[33vw] bg-slate-900"></div>        
             </div>
         </div>
-        
+
     </div>
 </body>
 </html>
