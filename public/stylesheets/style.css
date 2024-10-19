@@ -630,20 +630,12 @@ video {
   height: 6rem;
 }
 
-.h-\[33vw\] {
-  height: 33vw;
-}
-
 .h-full {
   height: 100%;
 }
 
 .h-screen {
   height: 100vh;
-}
-
-.w-\[22vw\] {
-  width: 22vw;
 }
 
 .w-\[340px\] {
@@ -672,8 +664,8 @@ video {
           appearance: none;
 }
 
-.flex-wrap {
-  flex-wrap: wrap;
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .items-center {
@@ -690,10 +682,6 @@ video {
 
 .justify-evenly {
   justify-content: space-evenly;
-}
-
-.gap-4 {
-  gap: 1rem;
 }
 
 .overflow-x-hidden {
@@ -929,24 +917,16 @@ video {
     height: 7rem;
   }
 
-  .xs\:h-\[30vw\] {
-    height: 30vw;
-  }
-
   .xs\:w-\[100px\] {
     width: 100px;
-  }
-
-  .xs\:w-\[20vw\] {
-    width: 20vw;
   }
 
   .xs\:w-\[380px\] {
     width: 380px;
   }
 
-  .xs\:gap-5 {
-    gap: 1.25rem;
+  .xs\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .xs\:px-8 {
@@ -972,24 +952,16 @@ video {
     height: 8rem;
   }
 
-  .sm\:h-\[25vw\] {
-    height: 25vw;
-  }
-
   .sm\:w-\[120px\] {
     width: 120px;
-  }
-
-  .sm\:w-\[17vw\] {
-    width: 17vw;
   }
 
   .sm\:w-\[400px\] {
     width: 400px;
   }
 
-  .sm\:gap-6 {
-    gap: 1.5rem;
+  .sm\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .sm\:px-10 {
@@ -1034,24 +1006,16 @@ video {
     height: 9rem;
   }
 
-  .md\:h-\[22vw\] {
-    height: 22vw;
-  }
-
   .md\:w-\[140px\] {
     width: 140px;
-  }
-
-  .md\:w-\[15vw\] {
-    width: 15vw;
   }
 
   .md\:w-\[500px\] {
     width: 500px;
   }
 
-  .md\:gap-7 {
-    gap: 1.75rem;
+  .md\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
   .md\:px-12 {
@@ -1101,24 +1065,12 @@ video {
     height: 11rem;
   }
 
-  .lg\:h-\[18vw\] {
-    height: 18vw;
-  }
-
-  .lg\:w-\[12vw\] {
-    width: 12vw;
-  }
-
   .lg\:w-\[160px\] {
     width: 160px;
   }
 
   .lg\:w-\[600px\] {
     width: 600px;
-  }
-
-  .lg\:gap-8 {
-    gap: 2rem;
   }
 
   .lg\:px-14 {
@@ -1168,16 +1120,12 @@ video {
     height: 13rem;
   }
 
-  .xl\:h-\[15vw\] {
-    height: 15vw;
-  }
-
-  .xl\:w-\[10vw\] {
-    width: 10vw;
-  }
-
   .xl\:w-\[180px\] {
     width: 180px;
+  }
+
+  .xl\:grid-cols-7 {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
   }
 
   .xl\:px-16 {
