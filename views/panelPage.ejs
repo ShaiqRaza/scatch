@@ -10,23 +10,45 @@
     <div class="w-full h-full">
         <!-- Add Product Popup -->
         <% if(error.length > 0) { %> 
-            <div id="addProductPopup_reverse" class="rounded-xl absolute top-[20%] h-[40%] xl:left-[35%] xl:w-[30%] lg:left-[30%] lg:w-[40%] md:left-[27%] md:w-[46%] sm:left-[25%] sm:w-[50%] xs:left-[20%] xs:w-[60%] left-[15%] w-[70%] bg-gradient-to-t from-slate-600 to-neutral-300">
-                <form action="/product/create" method="post" class=" text-white" enctype="multipart/form-data">
-                    <div>Image: <input type="file" name="image"></div>
-                    <div><input type="text" name="name" placeholder="Enter Name" class="px-3 outline-none bg-slate-300 rounded-md"></div>
-                    <div><input type="number" name="price" placeholder="Enter Price" class="px-3 outline-none bg-slate-300 rounded-md"></div>
-                    <button class="h-8 w-12 bg-blue-600 rounded-md" type="submit">Add</button>
-               </form>
+            <div id="addProductPopup_reverse" class="rounded-xl absolute top-[20%] h-[auto] max-h-[90%] xl:left-[35%] xl:w-[30%] lg:left-[30%] lg:w-[40%] md:left-[27%] md:w-[46%] sm:left-[25%] sm:w-[50%] xs:left-[20%] xs:w-[60%] left-[15%] w-[70%] bg-gradient-to-t from-slate-600 to-neutral-300 p-6 shadow-lg">
+                <h2 class="text-lg font-semibold mb-4">Add New Product</h2>
+                <form action="/product/create" method="post" class="text-white space-y-4" enctype="multipart/form-data">
+                    <div>
+                        <label for="image" class="block text-sm mb-1">Image:</label>
+                        <input type="file" name="image" id="image" class="block w-full mt-1 mb-2 px-3 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition">
+                    </div>
+                    <div>
+                        <label for="name" class="block text-sm mb-1">Name:</label>
+                        <input type="text" name="name" id="name" placeholder="Enter Name" class="outline-none block w-full px-3 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition">
+                    </div>
+                    <div>
+                        <label for="price" class="block text-sm mb-1">Price:</label>
+                        <input type="number" name="price" id="price" placeholder="Enter Price" class="outline-none block w-full px-3 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition">
+                    </div>
+                    <button class="h-10 w-full bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300 transition" type="submit">Add</button>
+                </form>
             </div>
+            
         <% } else { %>
-            <div id="addProductPopup" class="hidden rounded-xl absolute top-[20%] h-[40%] xl:left-[35%] xl:w-[30%] lg:left-[30%] lg:w-[40%] md:left-[27%] md:w-[46%] sm:left-[25%] sm:w-[50%] xs:left-[20%] xs:w-[60%] left-[15%] w-[70%] bg-gradient-to-t from-slate-600 to-neutral-300">
-                <form action="/product/create" method="post" class=" text-white" enctype="multipart/form-data">
-                    <div>Image: <input type="file" name="image"></div>
-                    <div><input type="text" name="name" placeholder="Enter Name" class="px-3 outline-none bg-slate-300 rounded-md"></div>
-                    <div><input type="number" name="price" placeholder="Enter Price" class="px-3 outline-none bg-slate-300 rounded-md"></div>
-                    <button class="h-8 w-12 bg-blue-600 rounded-md" type="submit">Add</button>
-               </form>
+            <div id="addProductPopup" class="hidden rounded-xl absolute top-[20%] h-[auto] max-h-[90%] xl:left-[35%] xl:w-[30%] lg:left-[30%] lg:w-[40%] md:left-[27%] md:w-[46%] sm:left-[25%] sm:w-[50%] xs:left-[20%] xs:w-[60%] left-[15%] w-[70%] bg-gradient-to-t from-slate-600 to-neutral-300 p-6 shadow-lg">
+                <h2 class="text-lg font-semibold mb-4">Add New Product</h2>
+                <form action="/product/create" method="post" class="text-white space-y-4" enctype="multipart/form-data">
+                    <div>
+                        <label for="image" class="block text-sm mb-1">Image:</label>
+                        <input type="file" name="image" id="image" class="block w-full mt-1 mb-2 px-3 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition">
+                    </div>
+                    <div>
+                        <label for="name" class="block text-sm mb-1">Name:</label>
+                        <input type="text" name="name" id="name" placeholder="Enter Name" class="outline-none block w-full px-3 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition">
+                    </div>
+                    <div>
+                        <label for="price" class="block text-sm mb-1">Price:</label>
+                        <input type="number" name="price" id="price" placeholder="Enter Price" class="outline-none block w-full px-3 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition">
+                    </div>
+                    <button class="h-10 w-full bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300 transition" type="submit">Add</button>
+                </form>
             </div>
+            
         <% } %>
         <!-- Menu Bar -->
         <nav class="flex justify-between items-center bg-white w-full xl:h-24 lg:h-20 md:h-16 sm:h-14 h-12 shadow-md fixed top-0 left-0 xl:px-16 lg:px-14 md:px-12 sm:px-10 xs:px-8 px-6 z-50">
