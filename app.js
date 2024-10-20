@@ -19,12 +19,13 @@ app.use(expressSession({
 app.use(flash());
 app.set('view engine', 'ejs');
 
-const isLoggedIn = require('./middlewares/isLoggedIn')
 const userRoutes = require('./routes/userRoutes');
 const ownerRoutes = require('./routes/ownerRoutes');
+const productRoutes = require('./routes/productRoutes');
 
 app.use('/user', userRoutes);
 app.use('/owner', ownerRoutes);
+app.use('/product', productRoutes);
 
 app.get('/', (req, res)=>{
     res.render("homePage", {token: req.cookies.token});
