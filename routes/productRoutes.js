@@ -13,7 +13,6 @@ router.post('/create', upload.single('image'), async (req, res)=>{
         req.flash("error", "Fill all the fields");
         return res.redirect('/owner/panel')
     }
-    console.log(req.file)
     await productModel.create({
         name,
         price,

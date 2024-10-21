@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <title>Shop</title>
 </head>
 <body class="w-screen h-screen overflow-x-hidden">
@@ -39,8 +40,19 @@
             <!-- Main products display area (Change flex to grid) -->
             <div class="grid xxl:grid-cols-7 xl:grid-cols-6 lg:grid-cols-5 sm:grid-cols-4 xs:grid-cols-3 grid-cols-2 gap-5 w-full h-full xl:pt-32 lg:pt-28 md:pt-24 sm:pt-20 pt-16 xl:pl-[230px] lg:pl-[200px] md:pl-[180px] sm:pl-[150px] xs:pl-[120px] pl-[100px]">      
                 <% products.forEach( (product)=>{ %>
-                    <div class="xl:w-[10vw] xl:h-[15vw] lg:w-[12vw] lg:h-[18vw] sm:w-[15vw] sm:h-[22vw] xs:w-[19vw] xs:h-[29vw] w-[22vw] h-[33vw] flex flex-col bg-slate-400">
-                        <img src="data:image/png;base64,<%= product.image.toString('base64') %>" alt="Product image!" class="h-3/5 w-full">
+                    <div class="rounded-md overflow-hidden xl:w-[11vw] xl:h-[15vw] lg:w-[13vw] lg:h-[18vw] sm:w-[16vw] sm:h-[22vw] xs:w-[20vw] xs:h-[29vw] w-[23vw] h-[33vw] flex flex-col bg-slate-400">
+                        <img src="data:image/png;base64,<%= product.image.toString('base64') %>" alt="Product image!" class="h-[72%] w-full">
+                        <div class="flex w-[100%] h-[28%] md:px-2 px-1">
+                            <div class="w-[80%]">
+                                <p class="capitalize xl:text-[19px] lg:text-[15px] md:text-[13px] sm:text-[11px] text-[9px] tracking-tight text-bold"><%= product.name %></p>
+                                <p class="capitalize xl:text-[19px] lg:text-[15px] md:text-[13px] sm:text-[11px] text-[9px] tracking-tight text-bold">Rs <%= product.price %></p>
+                            </div>
+                            <form class="w-[20%] flex items-center justify-center">
+                                <button class="rounded-full xl:w-[25px] xl:h-[25px] lg:w-[21px] lg:h-[21px] sm:w-[17px] sm:h-[17px] xs:w-[14px] xs:h-[14px] w-[12px] h-[12px] bg-white text-black flex justify-center items-center">
+                                    <i class="fa-solid fa-plus lg:text-[15px] md:text-[13px] sm:text-[11px] xs:text-[10px] text-[8px]"></i>
+                                </button>
+                            </form>
+                        </div>
                     </div> 
                 <% } ) %>             
             </div>
