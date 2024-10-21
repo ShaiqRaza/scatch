@@ -654,6 +654,10 @@ video {
   height: 6rem;
 }
 
+.h-3\/5 {
+  height: 60%;
+}
+
 .h-\[33vw\] {
   height: 33vw;
 }
@@ -710,6 +714,10 @@ video {
 
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.flex-col {
+  flex-direction: column;
 }
 
 .items-center {
@@ -781,6 +789,11 @@ video {
 .bg-slate-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(203 213 225 / var(--tw-bg-opacity));
+}
+
+.bg-slate-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
 }
 
 .bg-slate-900 {

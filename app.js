@@ -22,13 +22,15 @@ app.set('view engine', 'ejs');
 const userRoutes = require('./routes/userRoutes');
 const ownerRoutes = require('./routes/ownerRoutes');
 const productRoutes = require('./routes/productRoutes');
+const productModel = require('./models/productModel');
 
 app.use('/user', userRoutes);
 app.use('/owner', ownerRoutes);
 app.use('/product', productRoutes);
 
-app.get('/', (req, res)=>{
-    res.render("homePage", {token: req.cookies.token});
+app.get('/', async (req, res)=>{
+    let products = await productModel.find();
+    res.render("homePage", {token: req.cookies.token, products});
 })
 
 app.listen(3000);
