@@ -2,6 +2,7 @@ const express = require('express');
 const {createOwner} = require('../controllers/authController');
 const isLoggedIn = require('../middlewares/isLoggedIn');
 const isLoggedInOwner = require('../middlewares/isLoggedInOwner');
+const productModel = require('../models/productModel');
 const router = express.Router();
 
 if(process.env.NODE_ENV === "development"){
@@ -14,8 +15,9 @@ if(process.env.NODE_ENV === "development"){
     })
 }
 
-router.get('/panel', isLoggedInOwner, (req, res)=>{
-    res.render("panelPage", {error: req.flash("error"), message: req.flash("message")})
+router.get('/panel', isLoggedInOwner, async (req, res)=>{
+    let products = await productModel.find();
+    res.render("panelPage", {error: req.flash("error"), message: req.flash("message"), products})
 })
 
 router.get('/account', (req, res)=>{

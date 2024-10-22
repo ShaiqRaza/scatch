@@ -43,11 +43,11 @@
                     <div class="rounded-md overflow-hidden xl:w-[11vw] xl:h-[15vw] lg:w-[13vw] lg:h-[18vw] sm:w-[16vw] sm:h-[22vw] xs:w-[20vw] xs:h-[29vw] w-[23vw] h-[33vw] flex flex-col bg-slate-400">
                         <img src="data:image/png;base64,<%= product.image.toString('base64') %>" alt="Product image!" class="h-[72%] w-full">
                         <div class="flex w-[100%] h-[28%] md:px-2 px-1">
-                            <div class="w-[80%]">
-                                <p class="capitalize xl:text-[19px] lg:text-[15px] md:text-[13px] sm:text-[11px] text-[9px] tracking-tight text-bold"><%= product.name %></p>
-                                <p class="capitalize xl:text-[19px] lg:text-[15px] md:text-[13px] sm:text-[11px] text-[9px] tracking-tight text-bold">Rs <%= product.price %></p>
+                            <div class="w-[80%] h-full flex flex-col justify-center bg-[<%= product.panelColor %>]">
+                                <p class="capitalize xl:text-[19px] lg:text-[15px] md:text-[13px] sm:text-[11px] text-[9px] tracking-tight font-medium"><%= product.name %></p>
+                                <p class="capitalize xl:text-[19px] lg:text-[15px] md:text-[13px] sm:text-[11px] text-[9px] tracking-tight font-medium">Rs.<%= product.price %></p>
                             </div>
-                            <form class="w-[20%] flex items-center justify-center">
+                            <form class="w-[20%] h-full flex items-center justify-center">
                                 <button class="rounded-full xl:w-[25px] xl:h-[25px] lg:w-[21px] lg:h-[21px] sm:w-[17px] sm:h-[17px] xs:w-[14px] xs:h-[14px] w-[12px] h-[12px] bg-white text-black flex justify-center items-center">
                                     <i class="fa-solid fa-plus lg:text-[15px] md:text-[13px] sm:text-[11px] xs:text-[10px] text-[8px]"></i>
                                 </button>
