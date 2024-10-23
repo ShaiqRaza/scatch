@@ -18,3 +18,17 @@ addProduct.addEventListener('click', ()=>{
 
     addProductClick = !addProductClick;
 });
+
+let editProductPopup = document.querySelectorAll('.editProductPopup');
+let editProduct = document.querySelectorAll('.editProduct');
+editProduct.forEach((product, i)=>{
+    let editProductClick = true;
+    product.addEventListener('click', ()=>{
+        if(editProductClick) 
+            editProductPopup[i].style.display = "block";
+        else
+            editProductPopup[i].style.display = "none";
+
+        editProductClick = !editProductClick;
+    });
+});

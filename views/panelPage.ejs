@@ -87,6 +87,7 @@
             </div>
             
         <% } %>
+
         <!-- Menu Bar -->
         <nav class="flex justify-between items-center bg-white w-full xl:h-24 lg:h-20 md:h-16 sm:h-14 h-12 shadow-md fixed top-0 left-0 xl:px-16 lg:px-14 md:px-12 sm:px-10 xs:px-8 px-6 z-50">
             <div class="flex items-center">
@@ -118,13 +119,51 @@
                                 <p class="capitalize xl:text-[19px] lg:text-[15px] md:text-[13px] sm:text-[11px] text-[9px] tracking-tight font-medium"><%= product.name %></p>
                                 <p class="capitalize xl:text-[19px] lg:text-[15px] md:text-[13px] sm:text-[11px] text-[9px] tracking-tight font-medium">Rs.<%= product.price %></p>
                             </div>
-                            <form class="w-[20%] h-full flex items-center justify-center">
-                                <button class="rounded-full xl:w-[25px] xl:h-[25px] lg:w-[21px] lg:h-[21px] sm:w-[17px] sm:h-[17px] xs:w-[14px] xs:h-[14px] w-[12px] h-[12px] bg-white text-black flex justify-center items-center">
+                            <div class="w-[20%] h-full flex items-center justify-center">
+                                <button class="editProduct rounded-full xl:w-[25px] xl:h-[25px] lg:w-[21px] lg:h-[21px] sm:w-[17px] sm:h-[17px] xs:w-[14px] xs:h-[14px] w-[12px] h-[12px] bg-white text-black flex justify-center items-center" type="submit">
                                     <i class="fa-regular fa-pen-to-square lg:text-[14px] md:text-[12px] sm:text-[10px] xs:text-[9px] text-[7px]"></i>
                                 </button>
-                            </form>
+                            </div>
                         </div>
                     </div> 
+                    <!-- Edit Product Popup -->
+                    <div class="editProductPopup hidden rounded-xl absolute top-[20%] h-[auto] max-h-[90%] xl:left-[35%] xl:w-[30%] lg:left-[30%] lg:w-[40%] md:left-[27%] md:w-[46%] sm:left-[25%] sm:w-[50%] xs:left-[20%] xs:w-[60%] left-[15%] w-[70%] bg-gradient-to-t from-slate-600 to-neutral-300 p-6 shadow-lg">
+                        <h2 class="text-lg font-semibold mb-4">Edit Product</h2>
+                        <form action="/product/edit" method="post" class="text-white space-y-4" enctype="multipart/form-data">
+                            <div class="w-full flex">
+                                <div class="w-1/2">
+                                    <input type="text" name="_id" value="<%= product._id %>" class="text-black">
+                                    <div>
+                                        <label for="image" class="block text-sm mb-1">Image:</label>
+                                        <input type="file" name="image" id="image" class="block w-full mt-1 mb-2 px-3 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition">
+                                    </div>
+                                    <div>
+                                        <label for="name" class="block text-sm mb-1">Name:</label>
+                                        <input type="text" name="name" id="name" placeholder="Enter Name" class="outline-none block w-full px-3 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition" value="<%= product.name %>">
+                                    </div>
+                                    <div>
+                                        <label for="price" class="block text-sm mb-1">Price:</label>
+                                        <input type="number" name="price" id="price" placeholder="Enter Price" class="outline-none block w-full px-3 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition" value="<%= product.price %>">
+                                    </div>
+                                </div>
+                                <div class="w-1/2 xl:pl-6 lg:pl-5 md:pl-4 sm:pl-3 xs:pl-2 pl-1">
+                                    <div>
+                                        <label for="bgColor" class="block text-sm mb-1">BG-Color:</label>
+                                        <input type="color" name="bgColor" id="bgColor" class="outline-none block w-full px-3 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition" value="<%= product.bgColor %>">
+                                    </div>
+                                    <div>
+                                        <label for="panelColor" class="block text-sm mb-1">Panel-Color:</label>
+                                        <input type="color" name="panelColor" id="panelColor" class="outline-none block w-full px-3 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition" value="<%= product.panelColor %>">
+                                    </div>
+                                    <div>
+                                        <label for="textColor" class="block text-sm mb-1">Text-Color:</label>
+                                        <input type="color" name="textColor" id="textColor" class="outline-none block w-full px-3 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition" value="<%= product.textColor %>">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="h-10 w-full bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300 transition" type="submit">Edit</button>
+                        </form>
+                    </div>
                 <% } ) %>             
             </div>
         </div>

@@ -3,8 +3,22 @@ const router = express.Router();
 const upload = require('../config/multerConfiguration');
 const productModel = require('../models/productModel');
 
-router.post('/edit', (req, res)=>{
-    res.send('edit product')
+router.post('/edit', upload.single('image'), async (req, res)=>{
+    let {name, price, bgColor, panelColor, textColor, _id} = req.body;
+    if(name)
+        await productModel.updateOne({_id}, {name});
+    if(price)
+        await productModel.updateOne({_id}, {price});
+    if(bgColor)
+        await productModel.updateOne({_id}, {bgColor});
+    if(panelColor)
+        await productModel.updateOne({_id}, {panelColor});
+    if(textColor)
+        await productModel.updateOne({_id}, {textColor});
+    if(req.file)
+        await productModel.updateOne({_id}, {image: req.file.buffer});
+    req.flash("message", "Product is updated");
+    res.redirect('/owner/panel');
 })
 
 router.post('/create', upload.single('image'), async (req, res)=>{
