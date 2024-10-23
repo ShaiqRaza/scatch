@@ -670,6 +670,10 @@ video {
   height: 72%;
 }
 
+.h-\[85\%\] {
+  height: 85%;
+}
+
 .h-\[auto\] {
   height: auto;
 }
@@ -720,6 +724,10 @@ video {
 
 .w-\[80px\] {
   width: 80px;
+}
+
+.w-\[85\%\] {
+  width: 85%;
 }
 
 .w-full {
@@ -805,10 +813,6 @@ video {
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
-}
-
-.bg-\[\<\%\=product\.panelColor\%\>\] {
-  background-color: <%=product.panelColor%>;
 }
 
 .bg-blue-500 {
@@ -991,10 +995,6 @@ video {
 
 .tracking-tight {
   letter-spacing: -0.025em;
-}
-
-.text-\[\<\%\=product\.textColor\%\>\] {
-  color: <%=product.textColor%>;
 }
 
 .text-black {

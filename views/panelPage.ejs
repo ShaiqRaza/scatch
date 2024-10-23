@@ -110,9 +110,11 @@
             <div class="grid xxl:grid-cols-7 xl:grid-cols-6 lg:grid-cols-5 sm:grid-cols-4 xs:grid-cols-3 grid-cols-2 gap-5 w-full h-full xl:pt-32 lg:pt-28 md:pt-24 sm:pt-20 pt-16 xl:pl-[230px] lg:pl-[200px] md:pl-[180px] sm:pl-[150px] xs:pl-[120px] pl-[100px]">      
                 <% products.forEach( (product)=>{ %>
                     <div class="rounded-md overflow-hidden xl:w-[11vw] xl:h-[15vw] lg:w-[13vw] lg:h-[18vw] sm:w-[16vw] sm:h-[22vw] xs:w-[20vw] xs:h-[29vw] w-[23vw] h-[33vw] flex flex-col bg-slate-400">
-                        <img src="data:image/png;base64,<%= product.image.toString('base64') %>" alt="Product image!" class="h-[72%] w-full">
-                        <div class="flex w-[100%] h-[28%] md:px-2 px-1 bg-[<%=product.panelColor%>]">
-                            <div class="w-[80%] h-full flex flex-col justify-center text-[<%=product.textColor%>]">
+                        <div class="h-[72%] w-full flex justify-center items-center" style="background-color: <%= product.bgColor %>;">
+                            <img src="data:image/png;base64,<%= product.image.toString('base64') %>" alt="Product image!" class="h-[85%] w-[85%]">
+                        </div>
+                        <div class="flex w-[100%] h-[28%] md:px-2 px-1" style="background-color: <%= product.panelColor %>;">
+                            <div class="w-[80%] h-full flex flex-col justify-center" style="color: <%= product.textColor %>;">
                                 <p class="capitalize xl:text-[19px] lg:text-[15px] md:text-[13px] sm:text-[11px] text-[9px] tracking-tight font-medium"><%= product.name %></p>
                                 <p class="capitalize xl:text-[19px] lg:text-[15px] md:text-[13px] sm:text-[11px] text-[9px] tracking-tight font-medium">Rs.<%= product.price %></p>
                             </div>
