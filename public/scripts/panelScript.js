@@ -20,12 +20,18 @@ addProduct.addEventListener('click', ()=>{
 });
 
 let editProductPopup = document.querySelectorAll('.editProductPopup');
-let editProduct = document.querySelectorAll('.editProduct');
-editProduct.forEach((product, i)=>{
+let editProductButton = document.querySelectorAll('.editProductButton');
+
+editProductButton.forEach((button, i)=>{
     let editProductClick = true;
-    product.addEventListener('click', ()=>{
-        if(editProductClick) 
+    button.addEventListener('click', ()=>{
+        if(editProductClick) {
             editProductPopup[i].style.display = "block";
+            editProductButton.forEach((anotherButton, j)=>{
+                if(button != anotherButton)
+                    editProductPopup[j].style.display = "none";
+            })
+        }
         else
             editProductPopup[i].style.display = "none";
 
