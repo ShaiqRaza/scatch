@@ -11,78 +11,98 @@
     <div class="w-full h-full">
         <!-- Add Product Popup -->
         <% if(error.length > 0) { %> 
-            <div id="addProductPopup_reverse" class="rounded-xl absolute top-[20%] h-[auto] max-h-[90%] xl:left-[35%] xl:w-[30%] lg:left-[30%] lg:w-[40%] md:left-[27%] md:w-[46%] sm:left-[25%] sm:w-[50%] xs:left-[20%] xs:w-[60%] left-[15%] w-[70%] bg-gradient-to-t from-slate-600 to-neutral-300 p-6 shadow-lg">
+            <div id="addProductPopup_reverse" class="overflow-hidden rounded-sm absolute top-[20%] h-[auto] max-h-[90%] xl:left-[35%] xl:w-[30%] lg:left-[30%] lg:w-[40%] md:left-[27%] md:w-[46%] sm:left-[25%] sm:w-[50%] xs:left-[20%] xs:w-[60%] left-[15%] w-[70%] bg-gradient-to-t from-slate-600 to-neutral-300 pt-2 pb-4 px-3 shadow-lg">
                 <h2 class="text-lg font-semibold mb-4">Add New Product</h2>
-                <form action="/product/create" method="post" class="text-white space-y-4" enctype="multipart/form-data">
-                    <div class="w-full flex">
+                <button id="cancelCreation" class="absolute top-0 right-0 lg:h-9 md:h-8 sm:h-7 xs:h-6 h-5 lg:w-12 md:w-11 sm:w-10 xs:w-9 w-8 bg-red-600 hover:bg-red-700 focus:outline-none focus:ring focus:ring-blue-300 transition text-white lg:text-[130%] md:text-[115%] sm:text-[100%] xs:text-[90%] text-[80%] align-middle"><i class="fa-solid fa-xmark"></i></button> 
+                <form action="/product/create" method="post" class="text-white space-y-3" enctype="multipart/form-data">
+                    <div class="w-full flex flex-wrap xl:text-[16px] lg:text-[15px] md:text-[14px] sm:text-[13px] xs:text-[12px] text-[10px]">
                         <div class="w-1/2">
                             <div>
-                                <label for="image" class="block text-sm mb-1">Image:</label>
-                                <input type="file" name="image" id="image" class="block w-full mt-1 mb-2 px-3 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition">
+                                <label for="image" class="block sm:text-sm xs:text-[14px] text-[12px] mb-1">Image:</label>
+                                <label for="image" class="flex items-center my-1 outline-none w-full sm:px-3 xs:px-2 px-1 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition md:h-10 sm:h-9 xs:h-8 h-7">Choose file</label>
+                                <input type="file" name="image" id="image" class="hidden">
                             </div>
                             <div>
-                                <label for="name" class="block text-sm mb-1">Name:</label>
-                                <input type="text" name="name" id="name" placeholder="Enter Name" class="outline-none block w-full px-3 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition">
+                                <label for="name" class="block sm:text-sm xs:text-[14px] text-[12px] mb-1">Name:</label>
+                                <input type="text" name="name" id="name" placeholder="Enter Name" class=" my-1 outline-none block w-full sm:px-3 xs:px-2 px-1 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition md:h-10 sm:h-9 xs:h-8 h-7">
                             </div>
                             <div>
-                                <label for="price" class="block text-sm mb-1">Price:</label>
-                                <input type="number" name="price" id="price" placeholder="Enter Price" class="outline-none block w-full px-3 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition">
+                                <label for="price" class="block sm:text-sm xs:text-[14px] text-[12px] mb-1">Price:</label>
+                                <input type="number" name="price" id="price" placeholder="Enter Price" class=" my-1 outline-none block w-full sm:px-3 xs:px-2 px-1 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition md:h-10 sm:h-9 xs:h-8 h-7">
+                            </div>
+                            <div>
+                                <label for="discount" class="block sm:text-sm xs:text-[14px] text-[12px] mb-1">Discount:</label>
+                                <input type="number" name="discount" id="discount" placeholder="Enter Discount" class=" my-1 outline-none block w-full sm:px-3 xs:px-2 px-1 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition md:h-10 sm:h-9 xs:h-8 h-7">
                             </div>
                         </div>
-                        <div class="w-1/2 xl:pl-6 lg:pl-5 md:pl-4 sm:pl-3 xs:pl-2 pl-1">
+                        <div class="w-1/2 xl:pl-6 lg:pl-5 md:pl-4 sm:pl-3 pl-2">
                             <div>
-                                <label for="bgColor" class="block text-sm mb-1">BG-Color:</label>
-                                <input type="color" name="bgColor" id="bgColor" class="outline-none block w-full px-3 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition">
+                                <label for="bgColor" class="block sm:text-sm xs:text-[14px] text-[12px] mb-1">BG-Color:</label>
+                                <input type="color" name="bgColor" id="bgColor" class=" my-1 outline-none block w-full sm:px-3 sm:py-2 px-2 py-1 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition md:h-10 sm:h-9 xs:h-8 h-7">
                             </div>
                             <div>
-                                <label for="panelColor" class="block text-sm mb-1">Panel-Color:</label>
-                                <input type="color" name="panelColor" id="panelColor" class="outline-none block w-full px-3 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition">
+                                <label for="panelColor" class="block sm:text-sm xs:text-[14px] text-[12px] mb-1">Panel-Color:</label>
+                                <input type="color" name="panelColor" id="panelColor" class=" my-1 outline-none block w-full sm:px-3 sm:py-2 px-2 py-1 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition md:h-10 sm:h-9 xs:h-8 h-7">
                             </div>
                             <div>
-                                <label for="textColor" class="block text-sm mb-1">Text-Color:</label>
-                                <input type="color" name="textColor" id="textColor" class="outline-none block w-full px-3 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition">
+                                <label for="textColor" class="block sm:text-sm xs:text-[14px] text-[12px] mb-1">Text-Color:</label>
+                                <input type="color" name="textColor" id="textColor" class=" my-1 outline-none block w-full sm:px-3 sm:py-2 px-2 py-1 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition md:h-10 sm:h-9 xs:h-8 h-7">
+                            </div>
+                            <div>
+                                <label for="quantity" class="block sm:text-sm xs:text-[14px] text-[12px] mb-1">Quantity:</label>
+                                <input type="number" name="quantity" id="quantity" placeholder="Enter Quantity" class=" my-1 outline-none block w-full sm:px-3 xs:px-2 px-1 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition md:h-10 sm:h-9 xs:h-8 h-7">
                             </div>
                         </div>
                     </div>
-                    <button class="h-10 w-full bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300 transition" type="submit">Add</button>
+                    <button class="md:h-12 sm:h-10 xs:h-9 h-8 w-full bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300 transition" type="submit">Add</button>                          
                 </form>
             </div>
             
         <% } else { %>
-            <div id="addProductPopup" class="hidden rounded-xl absolute top-[20%] h-[auto] max-h-[90%] xl:left-[35%] xl:w-[30%] lg:left-[30%] lg:w-[40%] md:left-[27%] md:w-[46%] sm:left-[25%] sm:w-[50%] xs:left-[20%] xs:w-[60%] left-[15%] w-[70%] bg-gradient-to-t from-slate-600 to-neutral-300 p-6 shadow-lg">
+            <div id="addProductPopup" class="overflow-hidden hidden rounded-sm absolute top-[20%] h-[auto] max-h-[90%] xl:left-[35%] xl:w-[30%] lg:left-[30%] lg:w-[40%] md:left-[27%] md:w-[46%] sm:left-[25%] sm:w-[50%] xs:left-[20%] xs:w-[60%] left-[15%] w-[70%] bg-gradient-to-t from-slate-600 to-neutral-300 pt-2 pb-4 px-3 shadow-lg">
                 <h2 class="text-lg font-semibold mb-4">Add New Product</h2>
-                <form action="/product/create" method="post" class="text-white space-y-4" enctype="multipart/form-data">
-                    <div class="w-full flex">
+                <button id="cancelCreation" class="absolute top-0 right-0 lg:h-9 md:h-8 sm:h-7 xs:h-6 h-5 lg:w-12 md:w-11 sm:w-10 xs:w-9 w-8 bg-red-600 hover:bg-red-700 focus:outline-none focus:ring focus:ring-blue-300 transition text-white lg:text-[130%] md:text-[115%] sm:text-[100%] xs:text-[90%] text-[80%] align-middle"><i class="fa-solid fa-xmark"></i></button> 
+                <form action="/product/create" method="post" class="text-white space-y-3" enctype="multipart/form-data">
+                    <div class="w-full flex flex-wrap xl:text-[16px] lg:text-[15px] md:text-[14px] sm:text-[13px] xs:text-[12px] text-[10px]">
                         <div class="w-1/2">
                             <div>
-                                <label for="image" class="block text-sm mb-1">Image:</label>
-                                <input type="file" name="image" id="image" class="block w-full mt-1 mb-2 px-3 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition">
+                                <label for="image" class="block sm:text-sm xs:text-[14px] text-[12px] mb-1">Image:</label>
+                                <label for="image" class="flex items-center my-1 outline-none w-full sm:px-3 xs:px-2 px-1 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition md:h-10 sm:h-9 xs:h-8 h-7">Choose file</label>
+                                <input type="file" name="image" id="image" class="hidden">
                             </div>
                             <div>
-                                <label for="name" class="block text-sm mb-1">Name:</label>
-                                <input type="text" name="name" id="name" placeholder="Enter Name" class="outline-none block w-full px-3 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition">
+                                <label for="name" class="block sm:text-sm xs:text-[14px] text-[12px] mb-1">Name:</label>
+                                <input type="text" name="name" id="name" placeholder="Enter Name" class=" my-1 outline-none block w-full sm:px-3 xs:px-2 px-1 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition md:h-10 sm:h-9 xs:h-8 h-7">
                             </div>
                             <div>
-                                <label for="price" class="block text-sm mb-1">Price:</label>
-                                <input type="number" name="price" id="price" placeholder="Enter Price" class="outline-none block w-full px-3 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition">
+                                <label for="price" class="block sm:text-sm xs:text-[14px] text-[12px] mb-1">Price:</label>
+                                <input type="number" name="price" id="price" placeholder="Enter Price" class=" my-1 outline-none block w-full sm:px-3 xs:px-2 px-1 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition md:h-10 sm:h-9 xs:h-8 h-7">
+                            </div>
+                            <div>
+                                <label for="discount" class="block sm:text-sm xs:text-[14px] text-[12px] mb-1">Discount:</label>
+                                <input type="number" name="discount" id="discount" placeholder="Enter Discount" class=" my-1 outline-none block w-full sm:px-3 xs:px-2 px-1 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition md:h-10 sm:h-9 xs:h-8 h-7">
                             </div>
                         </div>
-                        <div class="w-1/2 xl:pl-6 lg:pl-5 md:pl-4 sm:pl-3 xs:pl-2 pl-1">
+                        <div class="w-1/2 xl:pl-6 lg:pl-5 md:pl-4 sm:pl-3 pl-2">
                             <div>
-                                <label for="bgColor" class="block text-sm mb-1">BG-Color:</label>
-                                <input type="color" name="bgColor" id="bgColor" class="outline-none block w-full px-3 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition">
+                                <label for="bgColor" class="block sm:text-sm xs:text-[14px] text-[12px] mb-1">BG-Color:</label>
+                                <input type="color" name="bgColor" id="bgColor" class=" my-1 outline-none block w-full sm:px-3 sm:py-2 px-2 py-1 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition md:h-10 sm:h-9 xs:h-8 h-7">
                             </div>
                             <div>
-                                <label for="panelColor" class="block text-sm mb-1">Panel-Color:</label>
-                                <input type="color" name="panelColor" id="panelColor" class="outline-none block w-full px-3 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition">
+                                <label for="panelColor" class="block sm:text-sm xs:text-[14px] text-[12px] mb-1">Panel-Color:</label>
+                                <input type="color" name="panelColor" id="panelColor" class=" my-1 outline-none block w-full sm:px-3 sm:py-2 px-2 py-1 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition md:h-10 sm:h-9 xs:h-8 h-7">
                             </div>
                             <div>
-                                <label for="textColor" class="block text-sm mb-1">Text-Color:</label>
-                                <input type="color" name="textColor" id="textColor" class="outline-none block w-full px-3 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition">
+                                <label for="textColor" class="block sm:text-sm xs:text-[14px] text-[12px] mb-1">Text-Color:</label>
+                                <input type="color" name="textColor" id="textColor" class=" my-1 outline-none block w-full sm:px-3 sm:py-2 px-2 py-1 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition md:h-10 sm:h-9 xs:h-8 h-7">
+                            </div>
+                            <div>
+                                <label for="quantity" class="block sm:text-sm xs:text-[14px] text-[12px] mb-1">Quantity:</label>
+                                <input type="number" name="quantity" id="quantity" placeholder="Enter Quantity" class=" my-1 outline-none block w-full sm:px-3 xs:px-2 px-1 py-2 border border-gray-300 rounded-md bg-slate-300 focus:border-blue-500 focus:ring focus:ring-blue-300 transition md:h-10 sm:h-9 xs:h-8 h-7">
                             </div>
                         </div>
                     </div>
-                    <button class="h-10 w-full bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300 transition" type="submit">Add</button>
+                    <button class="md:h-12 sm:h-10 xs:h-9 h-8 w-full bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300 transition" type="submit">Add</button>                          
                 </form>
             </div>
             
@@ -118,8 +138,8 @@
                         </div>
                         <div class="flex w-[100%] h-[28%] md:px-2 px-1" style="background-color: <%= product.panelColor %>;">
                             <div class="w-[80%] h-full flex flex-col justify-center" style="color: <%= product.textColor %>;">
-                                <p class="capitalize xl:text-[19px] lg:text-[15px] md:text-[13px] sm:text-[11px] text-[9px] tracking-tight font-medium"><%= product.name %></p>
-                                <p class="capitalize xl:text-[19px] lg:text-[15px] md:text-[13px] sm:text-[11px] text-[9px] tracking-tight font-medium">Rs.<%= product.price %></p>
+                                <p class="capitalize xxl:text-[19px] xl:text-[17px] lg:text-[15px] md:text-[13px] sm:text-[11px] text-[9px] tracking-tight font-medium"><%= product.name %></p>
+                                <p class="capitalize xxl:text-[19px] xl:text-[17px] lg:text-[15px] md:text-[13px] sm:text-[11px] text-[9px] tracking-tight font-medium">Rs.<%= product.price %></p>
                             </div>
                             <div class="w-[20%] h-full flex items-center justify-center">
                                 <button class="editProductButton rounded-full xl:w-[25px] xl:h-[25px] lg:w-[21px] lg:h-[21px] sm:w-[17px] sm:h-[17px] xs:w-[14px] xs:h-[14px] w-[12px] h-[12px] bg-white text-black flex justify-center items-center" type="submit">

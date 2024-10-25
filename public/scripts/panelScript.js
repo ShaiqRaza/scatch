@@ -1,6 +1,8 @@
+// for add product popup //
 let addProductPopup = document.querySelector('#addProductPopup');
 let addProductPopup_reverse = document.querySelector('#addProductPopup_reverse');
 let addProduct = document.querySelector('#addProduct');
+let cancelCreationButton = document.querySelector('#cancelCreation');
 let addProductClick = true;
 addProduct.addEventListener('click', ()=>{
     if(addProductClick) 
@@ -11,14 +13,26 @@ addProduct.addEventListener('click', ()=>{
     addProductClick = !addProductClick;
 });
 addProduct.addEventListener('click', ()=>{
-    if(!addProductClick) 
-        addProductPopup_reverse.style.display = "block";
-    else
-    addProductPopup_reverse.style.display = "none";
-
+    if(addProductPopup_reverse){
+        if(!addProductClick) 
+            addProductPopup_reverse.style.display = "block";
+        else
+        addProductPopup_reverse.style.display = "none";
+    
+        addProductClick = !addProductClick;
+    }
+});
+cancelCreationButton.addEventListener('click', ()=>{
+    if(addProductPopup_reverse){
+        addProductPopup_reverse.style.display = "none";
+        addProductClick = !addProductClick;
+    }
+});
+cancelCreationButton.addEventListener('click', ()=>{
+    addProductPopup.style.display = "none";
     addProductClick = !addProductClick;
 });
-
+// for edit product popup //
 let editProductPopup = document.querySelectorAll('.editProductPopup');
 let editProductButton = document.querySelectorAll('.editProductButton');
 editProductButton.forEach((button, i)=>{
@@ -30,7 +44,6 @@ editProductButton.forEach((button, i)=>{
         })
     });
 });
-
 let cancelEditButtons = document.querySelectorAll('.cancelEdit');
 cancelEditButtons.forEach((button, i)=>{
     button.addEventListener('click', ()=>{
