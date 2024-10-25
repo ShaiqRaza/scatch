@@ -3,6 +3,8 @@ const userModel = require('../models/userModel');
 const jwt = require('jsonwebtoken');
 const ownerModel = require('../models/ownerModel');
 
+//loginuser is same for both owner and user and logout also
+
 let createUser = async (req, res)=>{
     let {fullname, email, password} = req.body;
     
@@ -38,11 +40,11 @@ let createUser = async (req, res)=>{
 }
 module.exports.createUser = createUser;
 
-let loginUser = async (req, res)=>{
+let loginAccount = async (req, res)=>{
     let {email, password} = req.body;
     if( ! (email && password)) {
         req.flash("error", "Fill all the fields");
-        return res.redirect("/user/loginPage");
+        return res.redirect("/loginPage");
     }
 
     try {
@@ -56,7 +58,7 @@ let loginUser = async (req, res)=>{
                     return res.status(500).send(err.message);
                 else if(!result) {
                     req.flash("error", "Password or Email is incorrect");
-                    return res.redirect("/user/loginPage");
+                    return res.redirect("/loginPage");
                 }
                 let token = jwt.sign({email: existingUser.email, _id: existingUser._id}, process.env.JWT_KEY);
                 res.cookie("token", token);
@@ -65,14 +67,14 @@ let loginUser = async (req, res)=>{
         }
         else {
             req.flash("error", "Password or Email is incorrect");
-            return res.redirect("/user/loginPage");
+            return res.redirect("/loginPage");
         }
     }
     catch (err) {
         res.status(500).send(err.message);
     }
 }
-module.exports.loginUser = loginUser;
+module.exports.loginAccount = loginAccount;
 
 let createOwner = async (req, res)=>{
 
@@ -115,3 +117,9 @@ let createOwner = async (req, res)=>{
     }
 }
 module.exports.createOwner = createOwner;
+
+let logoutAccount = async (req, res)=>{
+    res.cookie('token', '');
+    res.redirect('/');
+}
+module.exports.logoutAccount = logoutAccount;

@@ -23,6 +23,7 @@ const userRoutes = require('./routes/userRoutes');
 const ownerRoutes = require('./routes/ownerRoutes');
 const productRoutes = require('./routes/productRoutes');
 const productModel = require('./models/productModel');
+const {loginAccount, logoutAccount} = require('./controllers/authController');
 
 app.use('/user', userRoutes);
 app.use('/owner', ownerRoutes);
@@ -32,5 +33,10 @@ app.get('/', async (req, res)=>{
     let products = await productModel.find();
     res.render("homePage", {token: req.cookies.token, products});
 })
+app.get('/loginPage', (req, res)=>{
+    res.render('loginPage', {error: req.flash("error")})
+})
+app.post('/login', loginAccount);
+app.get('/logout', logoutAccount);
 
 app.listen(3000);
