@@ -11,8 +11,8 @@ const productSchema = mongoose.Schema({
     bgColor: String,
     textColor: String,
     panelColor: String,
-    addedCount: {
-        type: Boolean,
+    salesCount: {
+        type: Number,
         default: 0
     },
     price: Number,

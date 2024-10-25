@@ -50,8 +50,8 @@
                                 <p class="capitalize xxl:text-[19px] xl:text-[17px] lg:text-[15px] md:text-[13px] sm:text-[11px] text-[9px] tracking-tight font-medium"><%= product.name %></p>
                                 <p class="capitalize xxl:text-[19px] xl:text-[17px] lg:text-[15px] md:text-[13px] sm:text-[11px] text-[9px] tracking-tight font-medium">Rs.<%= product.price %></p>
                             </div>
-                            <form class="w-[20%] h-full flex items-center justify-center">
-                                <button class="rounded-full xl:w-[25px] xl:h-[25px] lg:w-[21px] lg:h-[21px] sm:w-[17px] sm:h-[17px] xs:w-[14px] xs:h-[14px] w-[12px] h-[12px] bg-white text-black flex justify-center items-center">
+                            <form class="w-[20%] h-full flex items-center justify-center" action="/user/addtocart/<%= product._id %>" method="post">
+                                <button class="rounded-full xl:w-[25px] xl:h-[25px] lg:w-[21px] lg:h-[21px] sm:w-[17px] sm:h-[17px] xs:w-[14px] xs:h-[14px] w-[12px] h-[12px] bg-white text-black flex justify-center items-center" type="submit">
                                     <i class="fa-solid fa-plus lg:text-[15px] md:text-[13px] sm:text-[11px] xs:text-[10px] text-[8px]"></i>
                                 </button>
                             </form>

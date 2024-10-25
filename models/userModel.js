@@ -6,7 +6,12 @@ const userSchema = mongoose.Schema({
     password: String,
     contact: Number,
     image: String,
-    cart: [],
+    cart: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'products'
+        }
+    ],
     orders: [],
 })
 
