@@ -21,20 +21,19 @@ addProduct.addEventListener('click', ()=>{
 
 let editProductPopup = document.querySelectorAll('.editProductPopup');
 let editProductButton = document.querySelectorAll('.editProductButton');
-
 editProductButton.forEach((button, i)=>{
-    let editProductClick = true;
     button.addEventListener('click', ()=>{
-        if(editProductClick) {
-            editProductPopup[i].style.display = "block";
-            editProductButton.forEach((anotherButton, j)=>{
-                if(button != anotherButton)
-                    editProductPopup[j].style.display = "none";
-            })
-        }
-        else
-            editProductPopup[i].style.display = "none";
-
-        editProductClick = !editProductClick;
+        editProductPopup[i].style.display = "block";
+        editProductButton.forEach((anotherButton, j)=>{
+            if(button != anotherButton)
+                editProductPopup[j].style.display = "none";
+        })
     });
 });
+
+let cancelEditButtons = document.querySelectorAll('.cancelEdit');
+cancelEditButtons.forEach((button, i)=>{
+    button.addEventListener('click', ()=>{
+        editProductPopup[i].style.display = "none";
+    })
+})
