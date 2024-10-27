@@ -10,7 +10,12 @@ const isLoggedIn = async (req, res, next) => {
     {
         let decodedData = jwt.verify(req.cookies.token, process.env.JWT_KEY);
         req.user = await userModel.findOne({email: decodedData.email}).select("-password");
-        next();
+        if(req.user)
+            next();
+        else {
+            req.flash("error", "You're an admin");
+            return res.redirect('/');
+        }
     }
     catch(err)
     {

@@ -12,7 +12,12 @@ const userSchema = mongoose.Schema({
             ref: 'products'
         }
     ],
-    orders: [],
+    orders: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'products'
+        }
+    ],
 })
 
 module.exports = mongoose.model("users", userSchema);
