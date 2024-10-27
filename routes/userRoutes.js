@@ -16,8 +16,9 @@ router.get('/profile', (req, res)=>{
     res.send("user profile")
 })
 
-router.get('/cart', (req, res)=>{
-    res.send("cart")
+router.get('/cart', isLoggedIn, async (req, res)=>{
+    let user = await req.user.populate("cart");
+    res.render('cartPage', {products: user.cart});
 })
 
 router.get('/orders', (req, res)=>{

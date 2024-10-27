@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Cart</title>
+</head>
+<body class="w-screen h-screen overflow-x-hidden bg-gray-100">
+    <div class="w-full h-full">
+        <!-- Navbar -->
+        <nav class="flex justify-between items-center bg-white w-full xl:h-24 lg:h-20 md:h-16 sm:h-14 h-12 shadow-md fixed top-0 left-0 xl:px-16 lg:px-14 md:px-12 sm:px-10 px-6 z-50">
+            <form action="/" method="get">
+                <button class="font-bold text-blue-500 lg:text-4xl md:text-3xl sm:text-2xl text-xl">Scatch</button>
+            </form>
+            <div class="flex items-center">
+                <form action="/user/cart" method="get">
+                    <button class="text-red-500 hover:text-red-700 font-bold py-2 md:px-4 sm:px-3 px-2 lg:text-base sm:text-sm text-xs">Cart</button>
+                </form>
+                <!-- Additional Navigation Links -->
+            </div>
+        </nav>  
+
+        <!-- Cart Page Content -->
+        <div class="pt-20 xl:pt-28 px-6 sm:px-10 md:px-16 lg:px-20 xl:px-24">
+            <h1 class="text-3xl font-semibold mb-8 text-gray-800">Your Cart</h1>
+            <div class="w-full flex items-center flex-col">
+                <% if (products.length > 0) { %>
+                    <div class="space-y-6 md:w-[650px] sm:w-[520px] w-full">
+                        <% products.forEach(product => { %>
+                            <div class="flex flex-col sm:flex-row items-center sm:items-start bg-white p-4 rounded-lg shadow-md w-full md:h-[182px] sm:h-[162px]">
+                                <!-- Product Image -->
+                                <div class="md:w-[150px] sm:w-[130px] md:h-[150px] sm:h-[130px] w-full flex justify-center items-center mb-4 sm:mb-0 p-3" style="background-color: <%= product.bgColor %>;">
+                                    <img src="data:image/png;base64,<%= product.image.toString('base64') %>" alt="<%= product.name %>" class="md:h-32 md:w-32 h-28 w-28">
+                                </div>
+    
+                                <!-- Product Details -->
+                                <div class="md:w-[180px] sm:w-[140px] w-full px-4 flex flex-col justify-center h-full">
+                                    <h2 class="text-xl font-semibold capitalize"><%= product.name %></h2>
+                                    <% if (product.discount > 0) { %>
+                                        <p class="text-red-500">Discount: <%= product.discount %>%</p>
+                                    <% } %>
+                                    <p class="text-lg font-bold">Rs. <%= product.price %></p>
+                                </div>
+
+                                <!-- Quantity Selector -->
+                                <div class="flex sm:justify-start items-center justify-center space-x-1 md:w-[180px] sm:w-[140px] w-full h-full sm:px-4">
+                                    <!-- Decrease Quantity Button -->
+                                    <form action="/user/updateQuantity/<%= product._id %>" method="post">
+                                        <input type="hidden" name="action" value="decrease">
+                                        <button type="submit" class="h-[20px] w-[20px] bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold flex justify-center items-center">
+                                            -
+                                        </button>
+                                    </form>
+
+                                    <!-- Quantity Display -->
+                                    <div class="p-1 bg-gray-100 text-gray-800 font-semibold">
+                                        <%= product.quantity %>
+                                    </div>
+
+                                    <!-- Increase Quantity Button -->
+                                    <form action="/user/updateQuantity/<%= product._id %>" method="post">
+                                        <input type="hidden" name="action" value="increase">
+                                        <button type="submit" class="h-[20px] w-[20px] bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold flex justify-center items-center">
+                                            +
+                                        </button>
+                                    </form>
+                                </div>
+   
+                                <!-- Total Price and Remove Button -->
+                                <div class="md:w-[140px] sm:w-[110px] w-full mt-4 sm:mt-0 flex flex-col justify-center h-full">
+                                    <form action="/user/removeFromCart/<%= product._id %>" method="post" class="flex flex-col justify-center h-full">
+                                        <p class="text-gray-700 font-medium sm:px-0 px-4">Total: Rs. <%= product.price * product.quantity %></p>
+                                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white px-3 py-1 rounded-md text-sm">Remove</button>
+                                    </form>
+                                </div>
+                            </div>
+                        <% }); %>
+                    </div>
+                    
+                    <!-- Checkout Section -->
+                    <div class="mt-8 flex justify-end">
+                        <form action="/user/checkout" method="post">
+                            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md">Proceed to Checkout</button>
+                        </form>
+                    </div>
+    
+                <% } else { %>
+                    <!-- Empty Cart Message -->
+                    <div class="flex justify-center items-center text-gray-500 mt-20">
+                        <p class="text-lg">Your cart is currently empty.</p>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

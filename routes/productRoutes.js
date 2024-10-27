@@ -22,7 +22,7 @@ router.post('/edit', upload.single('image'), async (req, res)=>{
 })
 
 router.post('/create', upload.single('image'), async (req, res)=>{
-    let {name, price, bgColor, panelColor, textColor} = req.body;
+    let {name, price, bgColor, panelColor, textColor, quantity} = req.body;
     if(! (name && price && req.file)) {
         req.flash("error", "Fill all the fields");
         return res.redirect('/owner/panel')
@@ -33,6 +33,7 @@ router.post('/create', upload.single('image'), async (req, res)=>{
         image: req.file.buffer,
         bgColor,
         textColor,
+        quantity,
         panelColor,
     })
     req.flash("message", "Product is created");
