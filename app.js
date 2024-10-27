@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
+const dotenv = require('dotenv').config();
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
 const db = require('./config/mongooseConfig');
-const dotenv = require('dotenv').config();
 const flash = require('connect-flash');
 const expressSession = require('express-session');
 

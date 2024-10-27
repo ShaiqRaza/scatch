@@ -1,13 +1,21 @@
 const mongoose = require("mongoose");
-const config = require('config');
 const debug = require('debug')('development:mongooseConnection')
 
-mongoose.connect(`${config.get('mongodb_uri')}/scatch`)
-.then(()=>{
-    debug("Database connected!");
-})
-.catch((err)=>{
-    debug("Database not connected! ", err);
-})
+;(async ()=>{
+    try {
+        let db_connection_base = `${process.env.MONGODB_URI}`;
+        if(process.env.NODE_ENV=="producion")
+            db_connection_base = "mongodb+srv://shaiqraza808y:Mister1245@scatch.7tszj.mongodb.net";
+        await mongoose.connect(`${db_connection_base}/scatch`)
+        .then(()=>{
+            debug("Database connected!");
+        })
+        .catch((err)=>{
+            debug("Database not connected! ", err);
+        })
+    } catch(err) {
+        console.log(err.message)
+    }
+})()
 
 module.exports = mongoose.connection;
