@@ -4,6 +4,7 @@ const userSchema = mongoose.Schema({
     fullName: String,
     email: String,
     password: String,
+    address: String,
     contact: Number,
     image: Buffer,
     cart: [

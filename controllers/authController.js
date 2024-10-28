@@ -6,9 +6,9 @@ const ownerModel = require('../models/ownerModel');
 //loginuser is same for both owner and user and logout also
 
 let createUser = async (req, res)=>{
-    let {fullname, email, password} = req.body;
+    let {fullname, email, password, address} = req.body;
     
-    if( ! (fullname && email && password)) {
+    if( ! (fullname && email && password && address)) {
         req.flash("error", "Fill all the fields");
         return res.redirect("/user/createAccountPage");
     }
@@ -27,6 +27,7 @@ let createUser = async (req, res)=>{
         const userData = {
             fullname,
             email,
+            address,
             password:hash,
         }
         if(req.file)

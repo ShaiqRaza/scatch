@@ -13,8 +13,8 @@ router.get('/createAccountPage', (req, res)=>{
 
 router.post('/addtocart/:id', isLoggedIn, addtocart)
 
-router.get('/profile', (req, res)=>{
-    res.send("user profile")
+router.get('/profile', isLoggedIn, (req, res)=>{
+    res.render('userProfilePage', {user:req.user});
 })
 
 router.get('/cart', isLoggedIn, async (req, res)=>{
