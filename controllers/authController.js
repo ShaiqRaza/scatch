@@ -24,11 +24,14 @@ let createUser = async (req, res)=>{
     {
         let salt = await bcrypt.genSalt(10);
         let hash = await bcrypt.hash(password, salt);
-        let createdUser = await userModel.create({
+        const userData = {
             fullname,
             email,
-            password:hash
-        })
+            password:hash,
+        }
+        if(req.file)
+            userData.image = req.file.buffer;
+        let createdUser = await userModel.create(userData);
         let token = jwt.sign({email: createdUser.email, _id: createdUser._id}, process.env.JWT_KEY);
         res.cookie("token", token);
         res.redirect("/");

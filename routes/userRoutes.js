@@ -3,8 +3,9 @@ const router = express.Router();
 const {createUser} = require('../controllers/authController');
 const isLoggedIn = require('../middlewares/isLoggedIn')
 const {addtocart} = require('../controllers/cartController')
+const upload = require('../config/multerConfiguration');
 
-router.post('/createAccount', createUser)
+router.post('/createAccount', upload.single('image'), createUser)
 
 router.get('/createAccountPage', (req, res)=>{
     res.render('createAccountPage', {error: req.flash("error")})

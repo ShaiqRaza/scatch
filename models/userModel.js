@@ -5,7 +5,7 @@ const userSchema = mongoose.Schema({
     email: String,
     password: String,
     contact: Number,
-    image: String,
+    image: Buffer,
     cart: [
         {
             type: mongoose.Schema.Types.ObjectId,
