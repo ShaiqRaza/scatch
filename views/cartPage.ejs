@@ -70,7 +70,7 @@
    
                                 <!-- Total Price and Remove Button -->
                                 <div class="md:w-[140px] sm:w-[110px] w-full mt-4 sm:mt-0 flex flex-col justify-center h-full">
-                                    <form action="/user/removeFromCart/<%= product._id %>" method="post" class="flex flex-col justify-center h-full">
+                                    <form action="/user/removeFromCart/<%= product._id %>/cartPage" method="post" class="flex flex-col justify-center h-full">
                                         <p class="text-gray-700 font-medium sm:px-0 px-4">Total: Rs. <%= product.price * product.quantity %></p>
                                         <button type="submit" class="bg-red-500 hover:bg-red-700 text-white px-3 py-1 rounded-md text-sm">Remove</button>
                                     </form>

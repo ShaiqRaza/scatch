@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 const db = require('./config/mongooseConfig');
 const flash = require('connect-flash');
 const expressSession = require('express-session');
+const userModel = require('./models/userModel');
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -31,7 +32,12 @@ app.use('/product', productRoutes);
 
 app.get('/', async (req, res)=>{
     let products = await productModel.find();
-    res.render("homePage", {token: req.cookies.token, products});
+    req.user = null;
+    if(req.cookies.token){
+        let decodedData = jwt.verify(req.cookies.token, process.env.JWT_KEY);
+        req.user = await userModel.findOne({email: decodedData.email}).select("-password");
+    }
+    res.render("homePage", {user: req.user, products});
 })
 app.get('/loginPage', (req, res)=>{
     res.render('loginPage', {error: req.flash("error")})
