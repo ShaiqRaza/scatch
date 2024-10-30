@@ -37,7 +37,7 @@ app.get('/', async (req, res)=>{
         let decodedData = jwt.verify(req.cookies.token, process.env.JWT_KEY);
         req.user = await userModel.findOne({email: decodedData.email}).select("-password");
     }
-    res.render("homePage", {user: req.user, products});
+    res.render("homePage", {token: req.cookies.token, user: req.user, products});
 })
 app.get('/loginPage', (req, res)=>{
     res.render('loginPage', {error: req.flash("error")})
