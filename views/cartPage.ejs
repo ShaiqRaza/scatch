@@ -32,7 +32,7 @@
                             <div class="flex flex-col sm:flex-row items-center sm:items-start bg-white p-4 rounded-lg shadow-md w-full md:h-[182px] sm:h-[162px]">
                                 <!-- Product Image -->
                                 <div class="md:w-[150px] sm:w-[130px] md:h-[150px] sm:h-[130px] w-full flex justify-center items-center mb-4 sm:mb-0 p-3" style="background-color: <%= product.bgColor %>;">
-                                    <img src="data:image/png;base64,<%= product.image.toString('base64') %>" alt="<%= product.name %>" class="md:h-32 md:w-32 h-28 w-28">
+                                    <img src="data:image/png;base64,<%= product.image.toString('base64') %>" alt="<%= product.name %>" class="md:h-auto md:w-auto max-h-[85%] max-w-[85%] min-h-[75%] min-w-[70%] h-28 w-28">
                                 </div>
     
                                 <!-- Product Details -->

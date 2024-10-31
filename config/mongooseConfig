@@ -3,10 +3,9 @@ const debug = require('debug')('development:mongooseConnection')
 
 ;(async ()=>{
     try {
-        let db_connection_base = `${process.env.MONGODB_URI}`;
         if(process.env.NODE_ENV=="production")
-            db_connection_base = "mongodb+srv://shaiqraza808y:Mister1245@scatch.7tszj.mongodb.net";
-        await mongoose.connect(`${db_connection_base}/scatch`)
+            process.env.MONGODB_URI = "mongodb+srv://shaiqraza808y:Mister1245@scatch.7tszj.mongodb.net";
+        await mongoose.connect(`${process.env.MONGODB_URI}/scatch`)
         .then(()=>{
             debug("Database connected!");
         })

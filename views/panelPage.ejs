@@ -133,7 +133,7 @@
                 <% products.forEach( (product)=>{ %>
                     <div class="rounded-md overflow-hidden xl:w-[11vw] xl:h-[15vw] lg:w-[13vw] lg:h-[18vw] sm:w-[16vw] sm:h-[22vw] xs:w-[20vw] xs:h-[29vw] xss:w-[31vw] xss:h-[40vw] w-[26vw] h-[35vw] flex flex-col bg-slate-400">
                         <div class="h-[72%] w-full flex justify-center items-center" style="background-color: <%= product.bgColor %>;">
-                            <img src="data:image/png;base64,<%= product.image.toString('base64') %>" alt="Product image!" class="h-[85%] w-[85%]">
+                            <img src="data:image/png;base64,<%= product.image.toString('base64') %>" alt="Product image!" class="h-auto w-auto max-h-[85%] max-w-[85%] min-h-[75%] min-w-[70%]">
                         </div>
                         <div class="flex w-[100%] h-[28%] md:px-2 px-1" style="background-color: <%= product.panelColor %>;">
                             <div class="w-[80%] h-full flex flex-col justify-center" style="color: <%= product.textColor %>;">

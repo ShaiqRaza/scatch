@@ -7,16 +7,25 @@ const db = require('./config/mongooseConfig');
 const flash = require('connect-flash');
 const expressSession = require('express-session');
 const userModel = require('./models/userModel');
+const MongoStore = require('connect-mongo');
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('./public'));
 app.use(cookieParser());
-app.use(expressSession({
-    resave: true,
-    saveUninitialized: true,
+
+app.use(
+  expressSession({
     secret: process.env.EXPRESS_SESSION_KEY,
-}));
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI, // MongoDB Atlas connection string
+      ttl: 2 * 60 // Optional: session expiration in seconds (14 days here)
+    }),
+    cookie: { secure: false } // Use true if serving over HTTPS
+  })
+);
 app.use(flash());
 app.set('view engine', 'ejs');
 
