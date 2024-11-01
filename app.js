@@ -39,8 +39,18 @@ app.use('/user', userRoutes);
 app.use('/owner', ownerRoutes);
 app.use('/product', productRoutes);
 
-app.get('/', (req, res)=>{
-  res.send("hello")
+app.get('/', async (req, res)=>{
+    try {
+      let products = await productModel.find();
+      req.user = null;
+      if(req.cookies.token){
+          let decodedData = jwt.verify(req.cookies.token, process.env.JWT_KEY);
+          req.user = await userModel.findOne({email: decodedData.email}).select("-password");
+      }
+      res.render("homePage", {token: req.cookies.token, user: req.user, products});
+    } catch(err) {
+      console.log(err.message);
+    }
 })
 app.get('/loginPage', (req, res)=>{
     res.render('loginPage', {error: req.flash("error")})
