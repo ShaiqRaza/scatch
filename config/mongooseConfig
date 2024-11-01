@@ -3,8 +3,8 @@ const debug = require('debug')('development:mongooseConnection')
 
 ;(async ()=>{
     try {
-        if(process.env.NODE_ENV=="production")
-            process.env.MONGODB_URI = "mongodb+srv://shaiqraza808y:Mister1245@scatch.7tszj.mongodb.net";
+        if(process.env.NODE_ENV=="development")            
+            process.env.MONGODB_URI = "mongodb://localhost:27017";
         await mongoose.connect(`${process.env.MONGODB_URI}/scatch`)
         .then(()=>{
             debug("Database connected!");
