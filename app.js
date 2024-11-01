@@ -40,10 +40,10 @@ app.use('/owner', ownerRoutes);
 app.use('/product', productRoutes);
 
 app.get('/', (req, res)=>{
-  res.send("hello");
+  res.send("hello")
 })
 app.get('/loginPage', (req, res)=>{
-    res.render('loginPage', {error: ''})
+    res.render('loginPage', {error: req.flash("error")})
 })
 app.post('/login', loginAccount);
 app.get('/logout', logoutAccount);
