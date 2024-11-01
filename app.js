@@ -54,4 +54,7 @@ app.get('/loginPage', (req, res)=>{
 app.post('/login', loginAccount);
 app.get('/logout', logoutAccount);
 
-app.listen(3000);
+const port = process.env.PORT;
+if(!port)
+  port=3000;
+app.listen(port);
