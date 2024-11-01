@@ -8,11 +8,13 @@ const flash = require('connect-flash');
 const expressSession = require('express-session');
 const userModel = require('./models/userModel');
 const MongoStore = require('connect-mongo');
+const cors = require('cors');
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('./public'));
 app.use(cookieParser());
+app.use(cors());
 
 app.use(
   expressSession({
