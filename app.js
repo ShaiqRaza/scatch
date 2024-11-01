@@ -8,13 +8,11 @@ const flash = require('connect-flash');
 const expressSession = require('express-session');
 const userModel = require('./models/userModel');
 const MongoStore = require('connect-mongo');
-const cors = require('cors');
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('./public'));
 app.use(cookieParser());
-app.use(cors());
 
 app.use(
   expressSession({
@@ -56,7 +54,5 @@ app.get('/loginPage', (req, res)=>{
 app.post('/login', loginAccount);
 app.get('/logout', logoutAccount);
 
-const port = process.env.PORT;
-if(!port)
-  port=3000;
+const port = process.env.PORT || 3000;
 app.listen(port);
