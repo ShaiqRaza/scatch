@@ -27,7 +27,10 @@ app.use(
   })
 );
 app.use(flash());
+const path = require('path');
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
 
 const userRoutes = require('./routes/userRoutes');
 const ownerRoutes = require('./routes/ownerRoutes');
