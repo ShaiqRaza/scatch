@@ -53,7 +53,7 @@ app.get('/', async (req, res)=>{
     }
 })
 app.get('/loginPage', (req, res)=>{
-    res.render('loginPage', {error: "error"})
+    res.render('loginPage')
 })
 app.post('/login', loginAccount);
 app.get('/logout', logoutAccount);
