@@ -53,7 +53,7 @@ app.get('/', async (req, res)=>{
     }
 })
 app.get('/loginPage', (req, res)=>{
-    res.render('loginPage')
+    res.send('loginPage')
 })
 app.post('/login', loginAccount);
 app.get('/logout', logoutAccount);
