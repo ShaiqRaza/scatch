@@ -63,7 +63,7 @@ app.get('/loginPage', (req, res)=>{
 app.post('/login', loginAccount);
 app.get('/logout', logoutAccount);
 app.get('/test', (req, res)=>{
-  res.render('test')
+  res.send('test')
 })
 
 const port = process.env.PORT || 3000;
