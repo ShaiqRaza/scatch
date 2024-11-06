@@ -7,6 +7,7 @@ const db = require('./config/mongooseConfig');
 const flash = require('connect-flash');
 const expressSession = require('express-session');
 const userModel = require('./models/userModel');
+const path = require('path')
 const MongoStore = require('connect-mongo');
 
 app.use(express.json());
