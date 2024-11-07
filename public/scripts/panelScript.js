@@ -50,3 +50,14 @@ cancelEditButtons.forEach((button, i)=>{
         editProductPopup[i].style.display = "none";
     })
 })
+
+// for delete product option 
+let products = document.querySelectorAll('#product') ;
+products.forEach( product=>{
+    product.addEventListener('mouseover', ()=>{
+
+    })
+    product.addEventListener('mouseout', ()=>{
+        
+    })
+} )

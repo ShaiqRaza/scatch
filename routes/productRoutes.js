@@ -40,4 +40,9 @@ router.post('/create', upload.single('image'), async (req, res)=>{
     res.redirect('/owner/panel');
 })
 
+router.post('/delete/:id', async (req, res)=>{
+    await productModel.deleteOne( {_id: req.params.id});
+    res.redirect('/owner/panel');
+})
+
 module.exports = router

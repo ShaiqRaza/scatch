@@ -131,7 +131,7 @@
             <!-- Main products display area (Change flex to grid) -->
             <div class="grid xxl:grid-cols-7 xl:grid-cols-6 lg:grid-cols-5 sm:grid-cols-4 xs:grid-cols-3 grid-cols-2 gap-5 w-full h-full xl:pt-32 lg:pt-28 md:pt-24 sm:pt-20 pt-16 xl:pl-[230px] lg:pl-[200px] md:pl-[180px] sm:pl-[150px] xs:pl-[120px] pl-[100px]">      
                 <% products.forEach( (product)=>{ %>
-                    <div class="rounded-md overflow-hidden xl:w-[11vw] xl:h-[15vw] lg:w-[13vw] lg:h-[18vw] sm:w-[16vw] sm:h-[22vw] xs:w-[20vw] xs:h-[29vw] xss:w-[31vw] xss:h-[40vw] w-[26vw] h-[35vw] flex flex-col bg-slate-400">
+                    <div class="relative product rounded-md overflow-hidden xl:w-[11vw] xl:h-[15vw] lg:w-[13vw] lg:h-[18vw] sm:w-[16vw] sm:h-[22vw] xs:w-[20vw] xs:h-[29vw] xss:w-[31vw] xss:h-[40vw] w-[26vw] h-[35vw] flex flex-col bg-slate-400">
                         <div class="h-[72%] w-full flex justify-center items-center" style="background-color: <%= product.bgColor %>;">
                             <img src="data:image/png;base64,<%= product.image.toString('base64') %>" alt="Product image!" class="h-auto w-auto max-h-[85%] max-w-[85%] min-h-[75%] min-w-[70%]">
                         </div>
@@ -140,12 +140,19 @@
                                 <p class="capitalize xxl:text-[19px] xl:text-[17px] lg:text-[15px] md:text-[13px] sm:text-[11px] text-[9px] tracking-tight font-medium"><%= product.name %></p>
                                 <p class="capitalize xxl:text-[19px] xl:text-[17px] lg:text-[15px] md:text-[13px] sm:text-[11px] text-[9px] tracking-tight font-medium">Rs.<%= product.price %></p>
                             </div>
+                            <!--edit icon-->
                             <div class="w-[20%] h-full flex items-center justify-center">
                                 <button class="editProductButton rounded-full xl:w-[25px] xl:h-[25px] lg:w-[21px] lg:h-[21px] sm:w-[17px] sm:h-[17px] xs:w-[14px] xs:h-[14px] w-[12px] h-[12px] bg-white text-black flex justify-center items-center" type="submit">
                                     <i class="fa-regular fa-pen-to-square lg:text-[14px] md:text-[12px] sm:text-[10px] xs:text-[9px] text-[7px]"></i>
                                 </button>
                             </div>
                         </div>
+                        <!--delete icon-->
+                        <form action="/product/delete/<%= product._id %>" method="post">
+                            <button class="absolute sm:top-2 sm:right-2 top-1 right-1 rounded-full xl:w-[25px] xl:h-[25px] lg:w-[21px] lg:h-[21px] sm:w-[17px] sm:h-[17px] xs:w-[14px] xs:h-[14px] w-[12px] h-[12px] hover:bg-red-700 hover:text-white text-red-600 flex justify-center items-center" type="submit">
+                                <i class="fa-solid fa-xmark xl:text-[16px] lg:text-[14px] md:text-[13px] sm:text-[12px] xs:text-[11px] text-[10px]"></i>
+                            </button>
+                        </form>
                     </div> 
                     <!-- Edit Product Popup -->
                     <div class="overflow-hidden editProductPopup hidden rounded-sm absolute top-[20%] h-[auto] max-h-[90%] xl:left-[35%] xl:w-[30%] lg:left-[30%] lg:w-[40%] md:left-[27%] md:w-[46%] sm:left-[25%] sm:w-[50%] xs:left-[20%] xs:w-[60%] left-[15%] w-[70%] bg-gradient-to-t from-slate-600 to-neutral-300 pt-2 pb-4 px-3 shadow-lg">
