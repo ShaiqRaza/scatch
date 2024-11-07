@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const debug = require('debug')('development:mongooseConnection')
-console.log("mongooose config")
 
 ;(async ()=>{
     try {

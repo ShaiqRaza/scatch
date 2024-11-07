@@ -1,8 +1,10 @@
+console.log("Start 1");
 const express = require('express');
 const app = express();
 const dotenv = require('dotenv').config();
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
+console.log("Start 2");
 const db = require('./config/mongooseConfig');
 const flash = require('connect-flash');
 const expressSession = require('express-session');
@@ -15,6 +17,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static( path.join(__dirname, 'public') ));
 app.use(cookieParser());
 
+console.log("Start 3");
 app.use(
   expressSession({
     secret: process.env.EXPRESS_SESSION_KEY,
