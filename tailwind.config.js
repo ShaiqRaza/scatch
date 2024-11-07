@@ -7,6 +7,7 @@ module.exports = {
     './views/createOwnerPage.ejs',
     './views/panelPage.ejs',
     './views/cartPage.ejs',
+    './views/test.ejs',
   ],
   theme: {
     extend: {},

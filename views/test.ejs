@@ -6,6 +6,33 @@
     <title>test</title>
 </head>
 <body>
+    <!-- Menu Bar -->
+    <nav class="flex justify-between items-center bg-white w-full xl:h-24 lg:h-20 md:h-16 sm:h-14 h-12 shadow-md fixed top-0 left-0 xl:px-16 lg:px-14 md:px-12 sm:px-10 xs:px-8 px-6 z-50">
+        <div class="flex items-center">
+            <form action="/" method="get">
+                <button class="font-bold text-blue-500 lg:text-4xl md:text-3xl sm:text-2xl text-xl">Scatch</button>
+            </form>
+        </div>
+        <div class="flex justify-evenly items-center">
+                <form action="/user/profile" method="get">
+                    <button class="text-green-500 hover:text-green-700 font-bold py-2 md:px-4 sm:px-3 px-2 lg:text-base sm:text-sm text-xs" type="submit">Profile</button>
+                </form>
+                    <form action="/user/cart" method="get">
+                        <button class="text-red-500 hover:text-red-700 font-bold py-2 md:px-4 sm:px-3 px-2 lg:text-base sm:text-sm text-xs" type="submit">Cart</button>
+                    </form>
+
+                    <form action="/owner/panel" method="get">
+                        <button class="text-gray-500 hover:text-gray-700 font-bold py-2 md:px-4 sm:px-3 px-2 lg:text-base sm:text-sm text-xs" type="submit">Admin Panel</button>
+                    </form>
+
+                <form action="/logout" method="get">
+                    <button class="text-orange-500 hover:text-orange-700 font-bold py-2 md:px-4 sm:px-3 px-2 lg:text-base sm:text-sm text-xs" type="submit">Logout</button>
+                </form>
+                
+                <form action="/loginPage" method="get">
+                    <button class="text-orange-500 hover:text-orange-700 font-bold py-2 md:px-4 sm:px-3 px-2 lg:text-base sm:text-sm text-xs" type="submit">Login</button>
+                </form>
+    </nav>
     test ho raha, jaani
 </body>
 </html>
