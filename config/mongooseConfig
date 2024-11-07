@@ -3,7 +3,7 @@ const debug = require('debug')('development:mongooseConnection')
 
 ;(async ()=>{
     try {
-        // if(process.env.NODE_ENV=="development")            
+        if(process.env.NODE_ENV=="development")            
             process.env.MONGODB_URI = "mongodb://localhost:27017";
         await mongoose.connect(`${process.env.MONGODB_URI}/scatch`)
         .then(()=>{
