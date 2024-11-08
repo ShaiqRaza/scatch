@@ -51,8 +51,11 @@
             <div class="grid xxl:grid-cols-7 xl:grid-cols-6 lg:grid-cols-5 sm:grid-cols-4 xs:grid-cols-3 grid-cols-2 gap-5 w-full h-full xl:pt-32 lg:pt-28 md:pt-24 sm:pt-20 pt-16 xl:pl-[230px] lg:pl-[200px] md:pl-[180px] sm:pl-[150px] xs:pl-[120px] pl-[100px]">      
                 <% products.forEach( (product)=>{ %>
                     <div class="rounded-md overflow-hidden xl:w-[11vw] xl:h-[15vw] lg:w-[13vw] lg:h-[18vw] sm:w-[16vw] sm:h-[22vw] xs:w-[20vw] xs:h-[29vw] xss:w-[31vw] xss:h-[40vw] w-[26vw] h-[35vw] flex flex-col bg-slate-400">
-                        <div class="h-[72%] w-full flex justify-center items-center" style="background-color: <%= product.bgColor %>;">
+                        <div class="h-[72%] w-full relative flex justify-center items-center" style="background-color: <%= product.bgColor %>;">
                             <img src="data:image/png;base64,<%= product.image.toString('base64') %>" alt="Product image!" class="h-auto w-auto max-h-[85%] max-w-[85%] min-h-[75%] min-w-[70%]">
+                            <% if(product.quantity < 1) { %>
+                                <div class="bg-red-600 text-white absolute bottom-0 left-0 px-[4px] rounded-tr-lg lg:text-[14px] md:text-[12px] sm:text-[11px] xs:text-[10px] xss:text-[9px] text-[8px]">Out of Stock</div>
+                            <% } %>
                         </div>
                         <div class="flex w-[100%] h-[28%] md:px-2 px-1" style="background-color: <%= product.panelColor %>;">
                             <div class="w-[80%] h-full flex flex-col justify-center" style="color: <%= product.textColor %>;">
@@ -72,7 +75,12 @@
                                             <i class="fa-solid fa-plus lg:text-[15px] md:text-[13px] sm:text-[11px] xs:text-[10px] text-[8px]"></i>
                                          </button>
                                     </form>
-                                <% } %>
+                            <% } } else if(! owner) { %>
+                                <form class="w-[20%] h-full flex items-center justify-center" action="/loginPage" method="get">
+                                    <button class="rounded-full xl:w-[25px] xl:h-[25px] lg:w-[21px] lg:h-[21px] sm:w-[17px] sm:h-[17px] xs:w-[14px] xs:h-[14px] w-[12px] h-[12px] bg-white text-black flex justify-center items-center" type="submit">
+                                        <i class="fa-solid fa-plus lg:text-[15px] md:text-[13px] sm:text-[11px] xs:text-[10px] text-[8px]"></i>
+                                    </button>
+                                </form>
                             <% } %>
                         </div>
                     </div> 

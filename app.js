@@ -7,6 +7,7 @@ const db = require('./config/mongooseConfig');
 const flash = require('connect-flash');
 const expressSession = require('express-session');
 const userModel = require('./models/userModel');
+const ownerModel = require('./models/ownerModel');
 const path = require('path')
 const MongoStore = require('connect-mongo');
 
@@ -45,11 +46,14 @@ app.get('/', async (req, res)=>{
     try {
       let products = await productModel.find();
       req.user = null;
+      req.owner = null;
       if(req.cookies.token){
           let decodedData = jwt.verify(req.cookies.token, process.env.JWT_KEY);
           req.user = await userModel.findOne({email: decodedData.email}).select("-password");
+          if (! req.user)
+            req.owner = await ownerModel.findOne({email: decodedData.email}).select("-password");
       }
-      res.render("homePage", {token: req.cookies.token, user: req.user, products});
+      res.render("homePage", {token: req.cookies.token, user: req.user, products, owner: req.owner});
     } catch(err) {
       console.log(err.message);
     }
