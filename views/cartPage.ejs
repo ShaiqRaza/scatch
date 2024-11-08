@@ -27,9 +27,9 @@
             <h1 class="text-3xl font-semibold mb-8 text-gray-800">Your Cart</h1>
             <div class="w-full flex items-center flex-col">
                 <% if (products.length > 0) { %>
-                    <div class="space-y-4 md:w-[650px] sm:w-[520px] xs:w-[450px] xss:w-[380px] w-[300px]">
+                    <div class="sm:space-y-4 xs:space-y-3 space-y-2 md:w-[650px] sm:w-[520px] xs:w-[450px] xss:w-[380px] w-[300px]">
                         <% products.forEach(product => { %>
-                            <div class="bg-white py-4 sm:px-4 xs:px-3 px-2 rounded-lg shadow-md w-full grid sm:grid-cols-[1.2fr_1fr_1fr_1fr] xs:grid-cols-[1.2fr_1fr_1fr_1.1fr] grid-cols-[0fr_1fr_0.7fr_1.1fr]">
+                            <div class="bg-white py-4 sm:px-4 xs:px-3 px-2 rounded-lg shadow-md w-full grid sm:grid-cols-[1.2fr_1fr_1fr_1fr] xs:grid-cols-[1.2fr_1fr_1fr_1.1fr] grid-cols-[1fr_0.9fr_0.8fr_1.1fr]">
                                 <!-- Product Image -->
                                 <div class="relative md:w-[150px] md:h-[150px] sm:h-[130px] sm:w-[130px] xs:h-[120px] xs:w-[120px] xss:h-[100px] xss:w-[100px] h-[80px] w-[80px] flex justify-center items-center" style="background-color: <%= product.bgColor %>;">
                                     <img src="data:image/png;base64,<%= product.image.toString('base64') %>" alt="<%= product.name %>" class="md:h-auto md:w-auto max-h-[85%] max-w-[85%] min-h-[75%] min-w-[70%]">
@@ -48,11 +48,11 @@
                                 </div>
 
                                 <!-- Quantity Selector -->
-                                <div class="flex xs:justify-start items-center justify-center space-x-1 px-2">
+                                <div class="flex justify-start items-center space-x-1 lg:text-[18px] md:text-[16px] sm:text-[14px] xs:text-[12px] xss:text-[10px] text-[9px]">
                                     <!-- Decrease Quantity Button -->
                                     <form action="/user/updateQuantity/<%= product._id %>" method="post">
                                         <input type="hidden" name="action" value="decrease">
-                                        <button type="submit" class="h-[20px] w-[20px] bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold flex justify-center items-center">
+                                        <button type="submit" class="lg:h-[18px] lg:w-[18px] xs:h-[16px] xs:w-[16px] xss:h-[14px] xss:w-[14px] h-[12px] w-[12px] bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold flex justify-center items-center">
                                             -
                                         </button>
                                     </form>
@@ -65,17 +65,17 @@
                                     <!-- Increase Quantity Button -->
                                     <form action="/user/updateQuantity/<%= product._id %>" method="post">
                                         <input type="hidden" name="action" value="increase">
-                                        <button type="submit" class="h-[20px] w-[20px] bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold flex justify-center items-center">
+                                        <button type="submit" class="lg:h-[18px] lg:w-[18px] xs:h-[16px] xs:w-[16px] xss:h-[14px] xss:w-[14px] h-[12px] w-[12px] bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold flex justify-center items-center">
                                             +
                                         </button>
                                     </form>
                                 </div>
    
                                 <!-- Total Price and Remove Button -->
-                                <div class="mt-4 xs:mt-0 flex flex-col justify-center h-full">
+                                <div class="mt-0 flex flex-col justify-center h-full">
                                     <form action="/user/removeFromCart/<%= product._id %>/cartPage" method="post" class="flex flex-col justify-center h-full">
-                                        <p class="text-gray-700 font-medium xs:px-0 px-4 lg:text-[18px] md:text-[16px] sm:text-[15px] xs:text-[14px]">Total: <%= product.price * product.quantity %> /-</p>
-                                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white px-3 py-1 rounded-md text-sm">Remove</button>
+                                        <p class="text-gray-700 font-medium px-0 lg:text-[14px] md:text-[13px] sm:text-[12px] xs:text-[10px] xss:text-[9px] text-[8px]">Total: <%= product.price * product.quantity %> /-</p>
+                                        <button type="submit" class="xs:mt-[5px] mt-[3px] bg-red-500 hover:bg-red-700 text-white px-3 py-[2px] sm:rounded-[6px] xs:rounded-[5px] xss:rounded-[4px] rounded-[3px] xs:text-[14px] xss:text-[13px] text-[12px]">Remove</button>
                                     </form>
                                 </div>
                             </div>
