@@ -25,7 +25,7 @@ app.use(
       mongoUrl: process.env.MONGODB_URI, // MongoDB Atlas connection string
       ttl: 2 * 60 // Optional: session expiration in seconds (14 days here)
     }),
-    cookie: { secure: false } // Use true if serving over HTTPS
+    cookie: { secure: true } // Use true if serving over HTTPS
   })
 );
 app.use(flash());
