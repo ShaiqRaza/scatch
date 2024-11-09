@@ -6,9 +6,9 @@ const ownerModel = require('../models/ownerModel');
 //loginuser is same for both owner and user and logout also
 
 let createUser = async (req, res)=>{
-    let {fullname, email, password, address} = req.body;
+    let {fullName, email, password, address, contact} = req.body;
     
-    if( ! (fullname && email && password && address)) {
+    if( ! (fullName && email && password && address && contact)) {
         req.flash("error", "Fill all the fields");
         return res.redirect("/user/createAccountPage");
     }
@@ -25,10 +25,11 @@ let createUser = async (req, res)=>{
         let salt = await bcrypt.genSalt(10);
         let hash = await bcrypt.hash(password, salt);
         const userData = {
-            fullname,
+            fullName,
             email,
             address,
             password:hash,
+            contact,
         }
         if(req.file)
             userData.image = req.file.buffer;
