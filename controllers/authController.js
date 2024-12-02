@@ -35,7 +35,7 @@ let createUser = async (req, res)=>{
             userData.image = req.file.buffer;
         let createdUser = await userModel.create(userData);
         let token = jwt.sign({email: createdUser.email, _id: createdUser._id}, process.env.JWT_KEY);
-        res.cookie("token", token);
+        res.cookie("token", token, {expires: new Date(Date.now() + 7 * 864e5)});
         res.redirect("/");
     } 
     catch(err) 
@@ -66,7 +66,7 @@ let loginAccount = async (req, res)=>{
                     return res.redirect("/loginPage");
                 }
                 let token = jwt.sign({email: existingUser.email, _id: existingUser._id}, process.env.JWT_KEY);
-                res.cookie("token", token);
+                res.cookie("token", token, {expires: new Date(Date.now() + 7 * 864e5)});
                 res.redirect('/')
             })
         }
@@ -113,7 +113,7 @@ let createOwner = async (req, res)=>{
         })
 
         let token = jwt.sign({email: createdOwner.email, _id: createdOwner._id}, process.env.JWT_KEY);
-        res.cookie("token", token);
+        res.cookie("token", token, {expires: new Date(Date.now() + 7 * 864e5)});
         res.redirect("/");
     } 
     catch(err) 
