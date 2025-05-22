@@ -3,14 +3,12 @@ const debug = require('debug')('development:mongooseConnection')
 
 ;(async ()=>{
     try {
-        if(process.env.NODE_ENV!="production")            
-            process.env.MONGODB_URI = "mongodb://localhost:27017";
         await mongoose.connect(`${process.env.MONGODB_URI}/scatch`)
         .then(()=>{
-            debug("Database connected!");
+            console.log("Database connected!");
         })
         .catch((err)=>{
-            debug("Database not connected! ", err);
+            console.log("Database not connected! ", err);
         })
     } catch(err) {
         console.log(err.message)

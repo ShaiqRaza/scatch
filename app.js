@@ -39,13 +39,14 @@ const ownerRoutes = require('./routes/ownerRoutes');
 const productRoutes = require('./routes/productRoutes');
 const productModel = require('./models/productModel');
 const {loginAccount, logoutAccount} = require('./controllers/authController');
+const { prototype } = require('module');
 
 app.use('/user', userRoutes);
 app.use('/owner', ownerRoutes);
 app.use('/product', productRoutes);
 
 app.get('/', async (req, res)=>{
-    try {
+  try {
       let products = await productModel.find();
       req.user = null;
       req.owner = null;
@@ -70,4 +71,7 @@ app.get('/test', (req, res)=>{
 })
 
 const port = process.env.PORT || 3000;
-app.listen(port);
+
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
